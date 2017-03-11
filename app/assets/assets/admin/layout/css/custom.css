@@ -1,0 +1,679 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+
+body
+{
+    font: 12px/1.5 "宋体",arial !important;
+    font-family: "宋体",arial !important;
+}
+
+.btn
+{
+    font-size: 12px;
+}
+
+label
+{
+    font-size: 12px;
+}
+
+/*
+    页面整体布局 - 块
+*/
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
+{
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.col-md-1_8
+{
+    width: 12.5%;
+}
+
+/*
+    按钮
+*/
+.btn-default
+{
+    padding: 6px 3px;
+}
+
+.navss-tabs, .navss-pills
+{
+    margin-bottom: 0;
+}
+
+.navss > li > a
+{
+    padding: 3px 10px;
+}
+
+.navss-pills > li.active > a, .navss-pills > li.active > a:hover, .navss-pills > li.active > a:focus
+{
+    background-color: #E7E7E7;
+}
+
+.page-title
+{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.form-group
+{
+    margin-bottom: 5px;
+}
+
+.form-control
+{
+    font-size: 12px;
+}
+
+/*
+    日历 文本框
+*/
+.daterangepicker .ranges input[type="text"]
+{
+    width: 77px !important;
+}
+
+.daterangepicker .ranges .range_inputs > div:nth-child(2)
+{
+    padding-left: 6px;
+}
+
+
+.select2-container .select2-choice
+{
+    height: 28px;
+}
+
+.page-header.navssbar .top-menu .navssbar-navss > li.dropdown-user .dropdown-toggle
+{
+    padding: 12px 6px 12px 8px;
+}
+
+.editableform-loading
+{
+    background: url('assets/admin/layout/img/loading.gif') center center no-repeat;
+    height: 25px;
+    width: auto;
+    min-width: 25px;
+}
+
+.red-orange.btn
+{
+    color: white;
+    background-color: #FF6600;
+    border-color: "";
+}
+
+.page-header.navssbar
+{
+    background-color: #3391d4;
+    /* Top notification menu/bar */
+    /* Header seaech box */
+    /* Toggler button for sidebar expand/collapse and responsive sidebar menu */
+}
+
+    .page-header.navssbar .top-menu .navssbar-navss > li.dropdown-user .dropdown-toggle
+    {
+        background-color: #3391d4;
+    }
+
+    .page-header.navssbar .top-menu .navssbar-navss > li.dropdown .dropdown-toggle .badge.badge-default
+    {
+        background-color: #3391D4;
+        color: white;
+    }
+
+.navssbar-navss > li
+{
+    float: left;
+    text-align: center;
+}
+
+.page-header.navssbar .top-menu .navssbar-navss > li.dropdown-user .dropdown-toggle > .username
+{
+    font-size: 14px;
+}
+
+.page-header.navssbar .hor-menu .navssbar-navss > li.active > a,
+.page-header.navssbar .hor-menu .navssbar-navss > li.active > a:hover, .page-header.navssbar .hor-menu .navssbar-navss > li.current > a,
+.page-header.navssbar .hor-menu .navssbar-navss > li.current > a:hover
+{
+    color: white;
+    background: #FF6600;
+}
+
+.page-header.navssbar .hor-menu .navssbar-navss > li.active .selected, .page-header.navssbar .hor-menu .navssbar-navss > li.current .selected
+{
+    border-top: 6px solid #FF6600;
+}
+
+.page-header.navssbar .hor-menu .navssbar-navss > li .dropdown-menu
+{
+    box-shadow: 5px 5px rgba(138, 148, 158, 0.2);
+    background: #8a949e;
+}
+
+    .page-header.navssbar .hor-menu .navssbar-navss > li .dropdown-menu li > a
+    {
+        color: #dddddd;
+    }
+
+        .page-header.navssbar .hor-menu .navssbar-navss > li .dropdown-menu li > a:hover
+        {
+            color: white;
+            background: #FF6600;
+        }
+
+.page-header.navssbar .hor-menu.hor-menu-light .navssbar-navss > li.active > a,
+.page-header.navssbar .hor-menu.hor-menu-light .navssbar-navss > li.active > a:hover, .page-header.navssbar .hor-menu.hor-menu-light .navssbar-navss > li.current > a,
+.page-header.navssbar .hor-menu.hor-menu-light .navssbar-navss > li.current > a:hover
+{
+    color: white;
+    background: #3391D4;
+}
+
+.page-header.navssbar .hor-menu.hor-menu-light .navssbar-navss > li.active .selected, .page-header.navssbar .hor-menu.hor-menu-light .navssbar-navss > li.current .selected
+{
+    border-top: 6px solid #3391D4;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a,
+.page-sidebar .page-sidebar-menu > li.active > a,
+.page-sidebar .page-sidebar-menu > li.active.open > a
+{
+    background: #3391D4;
+    border-top-color: transparent;
+    color: white;
+}
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a:hover, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a:hover,
+    .page-sidebar .page-sidebar-menu > li.active > a:hover,
+    .page-sidebar .page-sidebar-menu > li.active.open > a:hover
+    {
+        background: #3391D4;
+    }
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu.page-sidebar-menu-light > li.active > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu.page-sidebar-menu-light > li.active.open > a,
+.page-sidebar .page-sidebar-menu.page-sidebar-menu-light > li.active > a,
+.page-sidebar .page-sidebar-menu.page-sidebar-menu-light > li.active.open > a
+{
+    background: #ededed;
+    border-left: 4px solid #3391D4;
+    color: #666666;
+}
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu.page-sidebar-menu-light > li.active > a:hover, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu.page-sidebar-menu-light > li.active.open > a:hover,
+    .page-sidebar .page-sidebar-menu.page-sidebar-menu-light > li.active > a:hover,
+    .page-sidebar .page-sidebar-menu.page-sidebar-menu-light > li.active.open > a:hover
+    {
+        border-left: 4px solid #3391D4;
+        background: whitesmoke;
+    }
+
+.page-sidebar-reversed .page-sidebar-menu.page-sidebar-menu-light > li.active > a, .page-sidebar-reversed .page-sidebar-menu.page-sidebar-menu-light > li.active.open > a
+{
+    border-left: 0;
+    border-right: 4px solid #3391D4;
+}
+
+    .page-sidebar-reversed .page-sidebar-menu.page-sidebar-menu-light > li.active > a:hover, .page-sidebar-reversed .page-sidebar-menu.page-sidebar-menu-light > li.active.open > a:hover
+    {
+        border-left: 0;
+        border-right: 4px solid #3391D4;
+    }
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .selected, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .selected,
+.page-sidebar .page-sidebar-menu > li.active.open > a > .selected,
+.page-sidebar .page-sidebar-menu > li.active > a > .selected
+{
+    top: 0px;
+    right: -8px;
+    border-top: 20px double transparent;
+    border-bottom: 20px double transparent;
+    border-right: 0;
+    border-left: 8px solid #3391D4;
+}
+
+.page-sidebar-reversed .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .selected, .page-sidebar-reversed .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .selected, .page-sidebar-reversed .page-sidebar .page-sidebar-menu > li.active.open > a > .selected, .page-sidebar-reversed .page-sidebar .page-sidebar-menu > li.active > a > .selected
+{
+    right: auto;
+    left: -8px;
+    border-left: 0;
+    border-right: 8px solid #3391D4;
+}
+
+.page-container-bg-solid .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .selected, .page-container-bg-solid .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .selected, .page-container-bg-solid .page-sidebar .page-sidebar-menu > li.active.open > a > .selected, .page-container-bg-solid .page-sidebar .page-sidebar-menu > li.active > a > .selected
+{
+    border-color: transparent transparent transparent #3391D4;
+}
+
+.page-container-bg-solid.page-sidebar-reversed .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .selected, .page-container-bg-solid.page-sidebar-reversed .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .selected, .page-container-bg-solid.page-sidebar-reversed .page-sidebar .page-sidebar-menu > li.active.open > a > .selected, .page-container-bg-solid.page-sidebar-reversed .page-sidebar .page-sidebar-menu > li.active > a > .selected
+{
+    border-color: transparent #3391D4 transparent transparent;
+}
+
+
+@media (max-width: 480px)
+{
+
+    .page-header.navssbar .top-menu .navssbar-navss > li.dropdown-user .dropdown-toggle
+    {
+        background-color: #3391d4;
+    }
+
+        .page-header.navssbar .top-menu .navssbar-navss > li.dropdown-user .dropdown-toggle:hover
+        {
+            background-color: #4EA9EA;
+        }
+}
+
+
+.page-header.navssbar .page-logo .logo-default
+{
+    margin: 10px 0 0;
+}
+
+/***
+Bootstrap Daterangepicker Begin 
+***/
+.daterangepicker td.active
+{
+    background-color: #3391D4;
+    background-image: none;
+    filter: none;
+}
+
+.daterangepicker .ranges li.active,
+.daterangepicker .ranges li:hover
+{
+    background: #3391D4 !important;
+    border: 1px solid #3391D4 !important;
+    color: #fff;
+}
+/***
+Bootstrap Daterangepicker End
+***/
+
+
+.form .form-actions
+{
+    padding: 20px 10px;
+    margin: 0;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    *zoom: 1;
+}
+
+
+/***
+Blue Madison Begin 
+***/
+/* Button */
+.blue-madison.btn
+{
+    color: white;
+    background-color: #3391D4;
+    border-color: "";
+}
+
+    .blue-madison.btn:hover, .blue-madison.btn:focus, .blue-madison.btn:active, .blue-madison.btn.active
+    {
+        color: white;
+        background-color: #427aaa;
+    }
+
+.open .blue-madison.btn.dropdown-toggle
+{
+    color: white;
+    background-color: #427aaa;
+}
+
+.blue-madison.btn:active, .blue-madison.btn.active
+{
+    background-image: none;
+}
+
+.open .blue-madison.btn.dropdown-toggle
+{
+    background-image: none;
+}
+
+.blue-madison.btn.disabled, .blue-madison.btn.disabled:hover, .blue-madison.btn.disabled:focus, .blue-madison.btn.disabled:active, .blue-madison.btn.disabled.active, .blue-madison.btn[disabled], .blue-madison.btn[disabled]:hover, .blue-madison.btn[disabled]:focus, .blue-madison.btn[disabled]:active, .blue-madison.btn[disabled].active, fieldset[disabled] .blue-madison.btn, fieldset[disabled] .blue-madison.btn:hover, fieldset[disabled] .blue-madison.btn:focus, fieldset[disabled] .blue-madison.btn:active, fieldset[disabled] .blue-madison.btn.active
+{
+    background-color: #3391D4;
+}
+
+.blue-madison.btn .badge
+{
+    color: #3391D4;
+    background-color: white;
+}
+
+/* Button Strip */
+.btn.blue-madison-stripe
+{
+    border-left: 3px solid #3391D4;
+}
+
+/* Portlet */
+.portlet > .portlet-body.blue-madison,
+.portlet.blue-madison
+{
+    background-color: #3391D4;
+}
+
+.portlet.solid.blue-madison > .portlet-title,
+.portlet.solid.blue-madison > .portlet-body
+{
+    border: 0;
+    color: white;
+}
+
+    .portlet.solid.blue-madison > .portlet-title > .caption > i
+    {
+        color: white;
+    }
+
+.portlet.box.blue-madison
+{
+    border: 1px solid #7ca7cc;
+    border-top: 0;
+}
+
+    .portlet.box.blue-madison > .portlet-title
+    {
+        background-color: #3391D4;
+    }
+
+        .portlet.box.blue-madison > .portlet-title > .caption
+        {
+            color: white;
+        }
+
+            .portlet.box.blue-madison > .portlet-title > .caption > i
+            {
+                color: white;
+            }
+
+        .portlet.box.blue-madison > .portlet-title > .actions .btn-default
+        {
+            background: transparent !important;
+            background-color: transparent !important;
+            border: 1px solid #a8c4dd;
+            color: #bad1e4;
+        }
+
+            .portlet.box.blue-madison > .portlet-title > .actions .btn-default > i
+            {
+                color: #c5d8e9;
+            }
+
+            .portlet.box.blue-madison > .portlet-title > .actions .btn-default:hover, .portlet.box.blue-madison > .portlet-title > .actions .btn-default:focus, .portlet.box.blue-madison > .portlet-title > .actions .btn-default:active, .portlet.box.blue-madison > .portlet-title > .actions .btn-default.active
+            {
+                border: 1px solid #cdddec;
+                color: #dfeaf3;
+            }
+
+/* Statistic Block */
+.dashboard-stat.blue-madison
+{
+    background-color: #3391D4;
+}
+
+    .dashboard-stat.blue-madison .visual > i
+    {
+        color: white;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+
+    .dashboard-stat.blue-madison .details .number
+    {
+        color: white;
+    }
+
+    .dashboard-stat.blue-madison .details .desc
+    {
+        color: white;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+    .dashboard-stat.blue-madison .more
+    {
+        color: white;
+        background-color: #4884b8;
+    }
+
+/* General Element  */
+.bg-blue-madison
+{
+    border-color: #3391D4 !important;
+    background-image: none !important;
+    background-color: #3391D4 !important;
+    color: white !important;
+}
+/***
+Blue Madison End 
+***/
+
+
+.bg-blue1
+{
+    border-color: #ECF1F9 !important;
+    background-image: none !important;
+    background-color: #ECF1F9 !important;
+    color: white !important;
+}
+
+.tiles .tile.double
+{
+    width: 238px !important;
+}
+
+.tiles .tile.width1_5
+{
+    width: 200px !important;
+    height: 215px !important;
+}
+
+.tiles .tile.width3
+{
+    width: 420px !important;
+    height: 215px !important;
+}
+
+.tiles .tile.width2-height2
+{
+    width: 280px !important;
+    height: 440px !important;
+}
+
+    .tiles .tile.width2-height2 i
+    {
+        margin-top: 95px;
+    }
+
+
+.tiles .tile .tile-body > .name
+{
+    margin-top: 17px;
+    display: block;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #666666;
+    background-color: transparent;
+}
+
+.tiles .tile .tile-object
+{
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    padding: 10px 10px 10px 0;
+    left: auto;
+    right: auto;
+}
+
+    .tiles .tile .tile-object > .number
+    {
+        position: absolute;
+        color: #000000;
+        text-align: center;
+        font-weight: 800;
+        font-size: 20px;
+        right: auto;
+        margin-bottom: 30px;
+        width: 250px;
+    }
+
+.term
+{
+    padding: 2px 0;
+    height: 24px;
+    line-height: 24px;
+    color: #a4afbb;
+}
+
+    .term dt
+    {
+        width: 82px;
+        text-align: right;
+        float: left;
+    }
+
+    .term dd
+    {
+        padding: 0 10px;
+        height: 22px;
+        line-height: 22px;
+        float: left;
+        background-color: #f3f3f3;
+        border: 1px solid #e3e3e3;
+        margin-right: 10px;
+    }
+
+.fn-left
+{
+    float: left;
+}
+
+.a-org, .a-org:link, .a-org:visited
+{
+    color: #fe8f00;
+}
+
+#tbcontainer table thead tr th
+{
+    text-align: center;
+}
+
+tr, th
+{
+    white-space: nowrap;
+}
+
+
+.icon10
+{
+    background: url(../img/icon-png24.png);
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 5px;
+    top: 3px;
+}
+
+.icon10-red
+{
+    background-position: -44px -120px;
+    margin: 4px 0 0 5px;
+}
+
+.icon10-green
+{
+    background-position: -64px -120px;
+    margin: 4px 0 0 5px;
+}
+
+.headth
+{
+    background-color: #83d7d9;
+}
+
+.head
+{
+    background-color: #DCE6F1;
+}
+
+.headthyellow
+{
+    background-color: #FFFF00;
+}
+
+.fontblod
+{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.aline
+{
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.loading-img
+{
+    width: 100%;
+    height: 100%;
+    background: url(../img/loading.gif) no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.loading-mask
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*如果需要半透明的效果请设置背景色和透明度*/
+    background-color: #000000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.fn-hide
+{
+    display: none;
+}
+
+.strongtitle
+{
+    font-family: 'Microsoft YaHei';
+}

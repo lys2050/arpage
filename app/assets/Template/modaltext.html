@@ -1,0 +1,1 @@
+﻿给body添加overflow：hidden属性即可，IE6、7下不会生效，需要给html增加overflow:hidden属性样式中需要对IE6、7及其它浏览器用hack辨别，这是因为当页面拉到下面时如果html或body被overflow:hidden，透明弹层下面的页面就会被部分正常隐藏，通过透明看到的一片的灰度，具体颜色跟平台及用户设置背景色有关。body或html去掉滚动条后，页面会有一个滚动条宽度/2的跳动！这个跳动对用户体验来十分不好，因此给body添加一下右padding，大小为滚动条的宽度。windows平台下滚动条的宽度为17px，linux平台下不同滚动器滚动条宽度不一致，可以用相关代码计算出滚动条的宽度，以下以windows平台相关代码：

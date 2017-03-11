@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <title>BootstrapValidator</title>
+    <link rel="stylesheet" href="../assets/global/plugins/bootstrap_LTE/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/global/plugins/validator/bootstrapValidator.css">
+    <link rel="stylesheet" href="../assets/global/plugins/validator/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" />
+    <style>
+        .bootstrap-select{margin-left:15px!important;}
+        .has-feedback label ~ .form-control-feedback {
+            top:0;
+        }
+    </style>
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/bootstrap_LTE/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/validator/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/validator/bootstrap-select.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- form: -->
+            <section>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="page-header">
+                        <h2>Sign up</h2>
+                    </div>
+
+                    <form id="defaultForm" method="post" class="form-horizontal bv-form" action="#" novalidate="novalidate">
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Email address</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="email" data-bv-field="email"><i class="form-control-feedback" data-bv-icon-for="email" style=""></i>
+                            <small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="VALID" style="display: none;">The input is not a valid email address</small></div>
+                        </div>
+                <!--        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Email address</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="email" data-bv-field="email"><i class="form-control-feedback" data-bv-icon-for="email" style=""></i>
+                                <small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="VALID" style="display: none;">The input is not a valid email address</small>
+                            </div>
+                        </div>-->
+
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Password</label>
+                            <div class="col-lg-5">
+                                <input type="password" class="form-control" name="password" data-bv-field="password"><i class="form-control-feedback" data-bv-icon-for="password" style=""></i>
+                            <small class="help-block" data-bv-validator="notEmpty" data-bv-for="password" data-bv-result="INVALID" style="">The password is required and cannot be empty</small><small class="help-block" data-bv-validator="identical" data-bv-for="password" data-bv-result="VALID" style="display: none;">The password and its confirm are not the same</small><small class="help-block" data-bv-validator="different" data-bv-for="password" data-bv-result="VALID" style="display: none;">The password cannot be the same as username</small></div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Retype password</label>
+                            <div class="col-lg-5">
+                                <input type="password" class="form-control" name="confirmPassword" data-bv-field="confirmPassword"><i class="form-control-feedback" data-bv-icon-for="confirmPassword" style=""></i>
+                            <small class="help-block" data-bv-validator="notEmpty" data-bv-for="confirmPassword" data-bv-result="INVALID" style="">The confirm password is required and cannot be empty</small><small class="help-block" data-bv-validator="identical" data-bv-for="confirmPassword" data-bv-result="VALID" style="display: none;">The password and its confirm are not the same</small><small class="help-block" data-bv-validator="different" data-bv-for="confirmPassword" data-bv-result="VALID" style="display: none;">The password cannot be the same as username</small></div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Gender</label>
+                            <div class="col-lg-5">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="male" data-bv-field="gender"> Male
+                                    </label><i class="form-control-feedback" data-bv-icon-for="gender" style=""></i>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="female" data-bv-field="gender"> Female
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="other" data-bv-field="gender"> Other
+                                    </label>
+                                </div>
+                            <small class="help-block" data-bv-validator="notEmpty" data-bv-for="gender" data-bv-result="INVALID" style="">The gender is required</small></div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Birthday</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" name="birthday" data-bv-field="birthday"><i class="form-control-feedback" data-bv-icon-for="birthday" style=""></i> (YYYY/MM/DD)
+                            <small class="help-block" data-bv-validator="date" data-bv-for="birthday" data-bv-result="VALID" style="display: none;">The birthday is not valid</small></div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Languages</label>
+                            <div class="col-lg-5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="languages[]" value="english" data-bv-field="languages[]"> English
+                                    </label><i class="form-control-feedback" data-bv-icon-for="languages[]" style=""></i>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="languages[]" value="french" data-bv-field="languages[]"> French
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="languages[]" value="german" data-bv-field="languages[]"> German
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="languages[]" value="russian" data-bv-field="languages[]"> Russian
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="languages[]" value="other" data-bv-field="languages[]"> Other
+                                    </label>
+                                </div>
+                            <small class="help-block" data-bv-validator="notEmpty" data-bv-for="languages[]" data-bv-result="INVALID" style=""></small></div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Programming Languages</label>
+                            <div class="col-lg-5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="net" data-bv-field="programs[]"> .Net
+                                    </label><i class="form-control-feedback" data-bv-icon-for="programs[]" style=""></i>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="java" data-bv-field="programs[]"> Java
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="c" data-bv-field="programs[]"> C/C++
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="php" data-bv-field="programs[]"> PHP
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="perl" data-bv-field="programs[]"> Perl
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="ruby" data-bv-field="programs[]"> Ruby
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="python" data-bv-field="programs[]"> Python
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs[]" value="javascript" data-bv-field="programs[]"> Javascript
+                                    </label>
+                                </div>
+                                <small class="help-block" data-bv-validator="choice" data-bv-for="programs[]" data-bv-result="INVALID" style=""></small></div>
+                        </div>
+
+                       
+                        
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Basic</label>
+                            <select class="selectpicker" multiple>
+                                  <option>Mustard</option>
+                                  <option>Ketchup</option>
+                                  <option>Relish</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <button type="button" class="btn btn-info" id="validateBtn">Manual validate</button>
+                                <button type="button" class="btn btn-info" id="resetBtn">Reset form</button>
+                            </div>
+                        </div>
+
+                        
+
+                        
+                    </form>
+                </div>
+            </section>
+            <!-- :form -->
+        </div>
+    </div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // Generate a simple captcha
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+    $('#defaultForm').bootstrapValidator({
+//        live: 'disabled',
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            email: {
+                validators: {
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required and cannot be empty'
+                    },
+                    identical: {
+                        field: 'confirmPassword',
+                        message: 'The password and its confirm are not the same'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    }
+                }
+            },
+            confirmPassword: {
+                validators: {
+                    notEmpty: {
+                        message: 'The confirm password is required and cannot be empty'
+                    },
+                    identical: {
+                        field: 'password',
+                        message: 'The password and its confirm are not the same'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    }
+                }
+            },
+            birthday: {
+                validators: {
+                    date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The birthday is not valid'
+                    }
+                }
+            },
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required'
+                    }
+                }
+            },
+            'languages[]': {
+                validators: {
+                    notEmpty: {
+                        message: 'Please specify at least one language you can speak'
+                    }
+                }
+            },
+            'programs[]': {
+                validators: {
+                    choice: {
+                        min: 2,
+                        max: 4,
+                        message: 'Please choose 2 - 4 programming languages you are good at'
+                    }
+                }
+            },
+            captcha: {
+                validators: {
+                    callback: {
+                        message: 'Wrong answer',
+                        callback: function(value, validator) {
+                            var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
+                            return value == sum;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Validate the form manually
+    $('#validateBtn').click(function() {
+        $('#defaultForm').bootstrapValidator('validate');
+    });
+
+    $('#resetBtn').click(function() {
+        $('#defaultForm').data('bootstrapValidator').resetForm(true);
+    });
+});
+</script>
+
+</body></html>

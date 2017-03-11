@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>simple-table</title>
+    <!-- BEGIN THEME STYLES -->
+    <link href="../assets/global/plugins/dialog/css/dialog.css" rel="stylesheet" type="text/css" />
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script src="../assets/local/script/sdlbase.js"></script>
+    <script src="../assets/local/script/sdltool.js"></script>
+    <script src="../assets/local/script/sdlpagebase.js"></script>
+    <!--<link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>-->
+    <style>
+        #container {
+            width:1000px;
+            height:600px;
+            /*height:150px;*/
+            border:1px solid red;
+            margin:100px auto;
+        }
+    </style>
+    <script>
+        $(function () {
+            var layer = new sdltool.simple_popLayer({
+                title: "表格标题",
+                //url: 'modaltext.html',
+                content: ['<div class="dialog-cnt">',
+                            '<table class="table-p5">',
+                                '<tr>',
+                                    '<td style="width:70px;">222</td>',
+                                    '<td>2212</td>',
+                                '</tr>',
+                                '<tr>',
+                                    '<td>12</td>',
+                                    '<td>2222222</td>',
+                                '</tr>',
+                                '<tr>',
+                                    '<td>22222</td>',
+                                    '<td>44444444</td>',
+                                '</tr>',
+                            '</table>',
+                      '</div>'].join(''),
+                /*容器，不设置默认为body*/
+                //container: '#container',
+                hasMask: true,
+            });
+            $('button.pop').on('click', function () {
+                layer.open();                           
+            });
+            $('button.close').click(function () {                
+                layer.close();
+            });           
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <button class="pop">弹出</button>
+    <button class="close">关闭</button>
+</body>
+    
+</html>

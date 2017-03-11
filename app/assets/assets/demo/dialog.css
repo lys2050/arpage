@@ -1,0 +1,150 @@
+﻿/**
+ * dialog css for myjrj
+ * author:hongda.yu@jrj.com.cn
+ */
+
+.album-dialog { position: fixed;z-index: 9500; top: 50%; left: 50%; border-radius: 4px; overflow: hidden; font-family: '微软雅黑'; display:none;}
+
+.album-mask {
+	z-index: 9400;
+	background:rgba(0,0,0,0);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#00000000',EndColorStr='#00000000');
+	/*opacity: 0;
+	background:#000;*/
+    display:none;
+}
+.album-mask-show { 
+    background:rgba(0,0,0,0.5);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#50000000',EndColorStr='#50000000');
+    -moz-transition: all 0.3s; -o-transition: all 0.3s; -webkit-transition: all 0.3s; transition: all 0.3s;
+    display:inline-block!important;
+}
+
+
+.album-dialog .md-container{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0;
+	-webkit-transition: all 0.3s cubic-bezier(.37,-0.04,.45,1.54);
+	-moz-transition: all 0.3s cubic-bezier(.37,-0.04,.45,1.54);
+	transition: all 0.3s cubic-bezier(.37,-0.04,.45,1.54);
+    background: #fff;
+    padding: 0 20px;
+    overflow:auto;
+    
+}
+.album-dialog-show  .md-container{
+    visibility:visible;
+    -webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+.album-dialog-show { -moz-transform:translateX(0),translateY(0); -ms-transform:translateX(0),translateY(0); -o-transform:translateX(0),translateY(0); -webkit-transform:translateX(0),translateY(0); transform:translateX(0),translateY(0);
+                     box-shadow:0 0 3px rgba(0,0,0,0.3);border:2px solid #3391D4;display:inline-block!important;
+}
+
+.album-dialog .md-container{
+	color:#fff;
+}
+.album-dialog .md-container .note-text { color:#be1227;text-indent: 30px;margin-top:5px;}
+
+.album-dialog .md-container .md-content{
+	color:#000;font-size:14px;padding:20px;background:#fff;
+}
+.album-dialog .md-container .md-content .dialog-cnt{
+     max-height:500px;overflow:auto;max-width:800px;   word-break:break-all; overflow:auto;
+}
+.album-dialog .md-container .md-content-notitle{
+    border-radius: 3px;
+}
+.album-dialog .md-container .md-content-nopadding{
+    padding-bottom:0;
+}
+.album-dialog .md-close{
+	position:absolute;
+	right:14px;
+	top:11px;
+	width:20px;
+	height:20px;
+	overflow:hidden;
+	cursor:pointer;
+    border-radius:50%;
+    line-height:18px;
+    text-align:center;
+    color:#fff;
+    background:#999;
+}
+.album-dialog .md-close:hover { background-color:#3391D4;}
+
+.album-dialog .md-titlebar{
+	background:#fff;
+	/*padding:0 10px;*/
+    /*padding-top:20px;*/
+	font-size:18px;
+	line-height:41px;
+    height:41px;
+    overflow:hidden;    
+    color:#333;
+    border-bottom:1px solid #ddd;
+}
+.album-dialog .md-btn-panel{text-align:center;padding:25px 0 25px 0;background:#fff;
+}
+.md-btn-panel input { border: none; cursor: pointer; vertical-align: middle; display: inline-block; text-align: center; text-decoration: none; background: #3391D4;border-radius:5px; /*box-shadow:0 3px #6691D4;*/ -moz-transition: all .2s; -o-transition: all .2s; -webkit-transition: all .2s; transition: all .2s; width:auto;height:30px;line-height:30px;color:#fff;font-size:14px;font-weight:normal;margin:0 6px;padding:0 20px;font-family:"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",simsun,"宋体",tahoma,arial;
+outline:none;star:expression(this.onFocus=this.blur()); }
+.md-btn-panel input:hover{background:#3391D4;text-decoration:none;color:#fff;/*box-shadow:0 3px #339156;*/ }
+.md-btn-panel input:active, .md-btn-panel input:selected, .md-btn-panel input:visited { 
+    border: none;
+    outline: none;
+}
+    /*.md-btn-panel input.md-cancel { border:none;cursor:pointer;vertical-align:middle;display:inline-block; text-align:center;font-size:12px;text-decoration:none;background:#eee;transition: all .2s;width:86px;height:38px;line-height:38px;color:#777;font-size:14px;font-weight:normal;border:1px solid #ccc;}
+    .md-btn-panel input.md-cancel:hover {background:#efecec;text-decoration:none;color:#343434;}*/
+
+/*处理火狐下按钮虚线框*/
+.md-btn-panel input::-moz-focus-inner {
+    padding: 0;
+    border: none;
+}
+.md-mini-alert .md-content, .md-mini-confirm .md-content{
+	padding: 10px 20px 5px;
+	width: 120px;
+	line-height: 18px;
+}
+.md-mini-prompt .md-content{
+	padding: 5px 10px;
+	width: auto;
+	height: 18px;
+	line-height: 18px;
+}
+
+.md-alert, .md-confirm{
+	z-index:9600
+}
+.md-alert .md-content, .md-confirm .md-content{
+	padding: 20px 20px;
+	width: 260px;
+	text-align: center;
+}
+    .md-alert .md-titlebar, .md-confirm .md-titlebar { width:260px;padding:0 20px;}
+.md-alert .md-btn-panel, .md-confirm .md-btn-panel{
+	padding: 0 0 20px;
+}
+
+.md-standard-dialog .md-content{
+	padding:0;
+}
+.md-standard-dialog .md-btn-panel{
+	padding: 0;
+}
+
+.md-btn-panel input.btn_confirm{}
+
+.md-content-prompt { position:relative;padding: 0 10px; }
+    .md-content-prompt i {position: absolute; bottom: -12px; left: 50%; margin-left: -6px; display: inline-block; width: 12px; height: 7px; }
+

@@ -1,0 +1,682 @@
+﻿/*日历*/
+
+.datepickercontainer
+{
+    width: 195px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #e3e3e3;
+    position: relative;
+    top: -1px;
+}
+
+    .datepickercontainer:hover
+    {
+        border-color: #7892cd;
+    }
+
+    .datepickercontainer span
+    {
+        padding-left: 5px;
+        color: #666666;
+    }
+
+    .datepickercontainer i
+    {
+        background: url("images/icon-png24.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+        background-position: -44px -60px;
+        position: absolute;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        right: 5px;
+        top: 6px;
+        cursor: pointer;
+    }
+
+
+.time_selector
+{
+    margin: 15px;
+    color: #7d7d7d;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+.btn1, .btn1_over
+{
+    margin: 0 2px 0 2px;
+    padding: 0 5px 3px 5px;
+    height: 23px;
+    line-height: 23px;
+    cursor: pointer!important;
+    display: inline;
+    background: url("Images/button_bg.gif") repeat-x top left;
+    border: 1px solid #c4ced8;
+}
+
+#main .menu li ul li a
+{
+    height: 21px;
+    line-height: 21px;
+}
+
+.c
+{
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.timeTab
+{
+    clear: both;
+    line-height: 24px;
+}
+
+    .timeTab .timeTab_box_normal
+    {
+    }
+
+    .timeTab .time_selector
+    {
+        float: left;
+        margin: -6px 0 10px 0px;
+    }
+
+    .timeTab .timer_selector
+    {
+        float: left;
+        width: 165px;
+        background: url("Images/time_bg.gif");
+        border: 1px solid #c4ced8;
+        cursor: pointer;
+        margin-top: 1px;
+    }
+
+    .timeTab .timer_selector_on
+    {
+        background-color: #f3f3f3;
+        border: solid 1px #e3e3e3;
+        cursor: pointer;
+    }
+
+    .timeTab .time
+    {
+        font-size: 12px;
+        color: #404040;
+        list-style: none;
+        line-height: 24px;
+        text-align: center;
+        float: left;
+        width: 150px;
+    }
+
+    .timeTab .expand
+    {
+        width: 13px;
+        height: 8px;
+        border-left: 1px solid #c4ced8;
+        background: url("Images/open.gif");
+        background-color: #f6f6f6;
+        background-repeat: no-repeat;
+        background-position: center;
+        float: right;
+        text-align: center;
+        padding-top: 16px;
+    }
+
+    .timeTab h4
+    {
+        float: left;
+        height: 21px;
+        line-height: 21px;
+        font-weight: normal;
+        font-size: 12px;
+        margin: 0 5px 0 5px;
+        color: #333;
+    }
+
+    .timeTab li.timetab_active a
+    {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .timeTab li
+    {
+        width: 75px;
+        height: 21px;
+        line-height: 21px;
+        float: left;
+        margin: 0;
+        text-align: center;
+    }
+
+        .timeTab li.timetab_active
+        {
+            background: url("timeabg.gif") no-repeat;
+        }
+
+#period_selector
+{
+    width: 200px;
+    margin-top: 6px;
+    float: right;
+    border-color: #d8dcdf;
+}
+
+    #period_selector input
+    {
+        width: 175px;
+        *width: 170px;
+        margin-left: 5px;
+        color: #303030;
+    }
+
+#timetab_customer .time_selector
+{
+    width: 790px;
+}
+
+.calMain
+{
+    display: none;
+    position: absolute;
+    z-index: 110;
+}
+
+    .calMain input
+    {
+        font-size: 12px;
+        font-family: Arial;
+    }
+
+.lzCalOne
+{
+    float: left;
+    margin: 0 3px 0 2px;
+}
+
+.lzCalTwo
+{
+    float: left;
+    width: 480px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.lzCalForm
+{
+    float: left;
+    width: 354px;
+    margin: 5px 0;
+}
+
+.lzCalMonth
+{
+    width:;
+}
+
+.lzCalInput
+{
+    border: 1px solid #A0C6EB;
+    height: 12px;
+    padding: 4.5px;
+    width: 65px;
+    line-height: 12px;
+    box-sizing: content-box;
+}
+
+.lzCalSel
+{
+    border: 1px solid #A1C7EC;
+    padding: 10px;
+    background-color: #D8E9FB;
+    box-shadow: 2px 2px 2px rgba(100,100,100,.3);
+}
+
+    .lzCalSel .focus
+    {
+        border: 1px solid #F99113;
+        background-color: #fff3d6;
+    }
+
+.lzCalError
+{
+    line-height: 16px;
+    color: #FE6C25;
+    margin: 6px 0;
+}
+
+.timeTab .caltab
+{
+    position: absolute;
+    z-index: 112;
+    top: -27px;
+    right: 0;
+}
+
+    .timeTab .caltab a
+    {
+        display: inline-block;
+        line-height: 26px;
+        height: 26px;
+        background-color: #fff;
+        border: 1px solid #A1C7EC;
+        border-left: 0;
+        padding: 0 10px;
+        font-weight: bolder;
+        color: #999;
+    }
+
+    .timeTab .caltab .first
+    {
+        border-left: 1px solid #A1C7EC;
+    }
+
+    .timeTab .caltab .sel
+    {
+        background-color: #D8E9FB;
+        border-bottom-color: #D8E9FB;
+        color: #333;
+    }
+
+.lzCalOne table
+{
+    border-collapse: collapse;
+}
+
+    .lzCalOne table td.last
+    {
+        border-right: 1px solid #A1C7EC;
+    }
+
+    .lzCalOne table td a
+    {
+        display: block;
+        width: 17px;
+        line-height: 20px;
+        border: none;
+        text-align: center;
+    }
+
+        .lzCalOne table td a.selected, .lzCalOne table td a:hover
+        {
+            background: #f99115;
+            text-decoration: none;
+            color: white;
+        }
+
+    .lzCalOne table td.year span
+    {
+        padding: 0 3px;
+        display: block;
+        font-weight: bold;
+        line-height: 20px;
+        border-top: 1px solid #6eb1f2;
+        border-bottom: 1px solid #5aa0e7;
+    }
+
+    .lzCalOne table td
+    {
+        border-top: 1px solid #a1c7ec;
+        background: white;
+        color: #333;
+        border-left: 1px solid #A1C7EC;
+        border-right: 1px solid #A1C7EC;
+        border-bottom: 1px solid #A1C7EC;
+    }
+
+        .lzCalOne table td.year
+        {
+            border: 1px solid #4586c8;
+            background: #5aa0e7;
+            color: white;
+        }
+
+        .lzCalOne table td a
+        {
+            color: #3c3c3c;
+        }
+
+            .lzCalOne table td a.disable
+            {
+                color: #ccc;
+                cursor: default;
+            }
+
+                .lzCalOne table td a.disable:hover
+                {
+                    background: white;
+                    color: #ccc;
+                }
+
+.jCal
+{
+    text-align: center;
+    line-height: 16px;
+    margin-bottom: 4px;
+    *margin-bottom: 0;
+}
+
+.jCalMo
+{
+    width: 155px;
+    float: left;
+    overflow: visible;
+    height: 100%;
+    margin: 0 3px 40px 2px;
+    white-space: nowrap;
+}
+
+.jCal .month td
+{
+    background-color: transparent;
+    line-height: 16px;
+}
+
+.jCal .month, .jCal .monthSelect, .jCal .monthName, .jCal .monthYear
+{
+    text-align: center;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+.jCal .monthName
+{
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: right;
+}
+
+.jCal .monthYear
+{
+    float: right;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: left;
+}
+
+.jCal .monthSelect
+{
+    background: #EEE bottom repeat-x;
+}
+
+.jCal .monthSelector
+{
+    position: absolute;
+}
+
+.jCal .monthSelectorShadow
+{
+    position: absolute;
+    background: #808080;
+    padding: 0;
+}
+
+.jCal .monthNameHover
+{
+    background: #EDEDED url(double-arrow-vert.gif) center left no-repeat;
+    color: #808080;
+}
+
+.jCal .monthYearHover
+{
+    background: #EDEDED url(double-arrow-vert.gif) center right no-repeat;
+    color: #808080;
+}
+
+.jCal .monthSelectHover
+{
+    background: #069;
+    color: #FFF;
+}
+
+.jCalMo .dow, .jCalMo .day, .jCalMo .pday, .jCalMo .aday, .jCalMo .overDay, .jCalMo .invday, .jCalMo .selectedDay
+{
+    width: 21px;
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: #3c3c3c;
+    border-right: 1px solid #A1C7EB;
+    border-bottom: 1px solid #A1C7EB;
+    border-left: 0;
+    text-align: center;
+    cursor: default;
+    float: left;
+}
+
+.jCalMo .dow
+{
+    color: #fff;
+    font-weight: bolder;
+    border-left: 0;
+    border-right: 1px solid #4586C8;
+    background-color: #61A3EE;
+    border-top: 1px solid #4586C8;
+    border-bottom: 1px solid #4586C8;
+    font-size: 12px;
+    font-family: "宋体";
+    font-weight: bolder;
+}
+
+.jCalMo .day, .jCalMo .invday
+{
+    height: 20px;
+    text-align: center;
+}
+
+.jCalMo .day
+{
+    cursor: pointer;
+    background: #FFF;
+}
+
+.jCalMo .invday
+{
+    color: #808080;
+    background: #eee;
+    text-decoration: line-through;
+}
+
+.jCalMo .pday, .jCalMo .aday
+{
+    height: 20px;
+    color: #CCC;
+    background-color: #fff;
+}
+
+.jCalMo .selectedDay
+{
+    color: #FFF;
+    background: #F99113;
+}
+
+.jCalMo .overDay
+{
+    color: #FFF;
+    background: #F99113;
+}
+
+.jCal .left
+{
+    background: url(Images/_left.gif) center center no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    float: left;
+}
+
+.jCal .right
+{
+    background: url(Images/_right.gif) center center no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    float: right;
+}
+
+.jCalMask, .jCalMove
+{
+    position: absolute;
+    overflow: hidden;
+}
+
+.lzCalQ
+{
+    float: left;
+    margin: 0 3px 0 2px;
+}
+
+    .lzCalQ table
+    {
+        border-collapse: collapse;
+    }
+
+        .lzCalQ table td.last
+        {
+            border-right: 1px solid #A1C7EC;
+        }
+
+        .lzCalQ table td a
+        {
+            display: block;
+            width: 60px;
+            line-height: 20px;
+            border: none;
+            text-align: center;
+        }
+
+            .lzCalQ table td a.selected, .lzCalQ table td a:hover
+            {
+                background: #f99115;
+                text-decoration: none;
+                color: white;
+            }
+
+        .lzCalQ table td.year span
+        {
+            padding: 0 2px;
+            display: block;
+            font-weight: bold;
+            line-height: 20px;
+            border-top: 1px solid #6eb1f2;
+            border-bottom: 1px solid #5aa0e7;
+        }
+
+        .lzCalQ table td
+        {
+            border-top: 1px solid #a1c7ec;
+            background: white;
+            color: #333;
+            border-left: 1px solid #A1C7EC;
+            border-right: 1px solid #A1C7EC;
+            border-bottom: 1px solid #A1C7EC;
+        }
+
+            .lzCalQ table td.year
+            {
+                border: 1px solid #4586c8;
+                background: #5aa0e7;
+                color: white;
+            }
+
+            .lzCalQ table td a
+            {
+                color: #3c3c3c;
+            }
+
+                .lzCalQ table td a.disable
+                {
+                    color: #ccc;
+                    cursor: default;
+                }
+
+                    .lzCalQ table td a.disable:hover
+                    {
+                        background: white;
+                        color: #ccc;
+                    }
+
+.lzCalY
+{
+    float: left;
+    margin: 0 3px 0 2px;
+}
+
+    .lzCalY table
+    {
+        border-collapse: collapse;
+    }
+
+        .lzCalY table td.last
+        {
+            border-right: 1px solid #A1C7EC;
+        }
+
+        .lzCalY table td a
+        {
+            display: block;
+            width: 56px;
+            line-height: 40px;
+            border: none;
+            text-align: center;
+        }
+
+            .lzCalY table td a.selected, .lzCalQ table td a:hover
+            {
+                background: #f99115;
+                text-decoration: none;
+                color: white;
+            }
+
+        .lzCalY table td.year span
+        {
+            padding: 0 7px;
+            display: block;
+            font-weight: bold;
+            line-height: 20px;
+            border-top: 1px solid #6eb1f2;
+            border-bottom: 1px solid #5aa0e7;
+        }
+
+        .lzCalY table td
+        {
+            border-top: 1px solid #a1c7ec;
+            background: white;
+            color: #333;
+            border-left: 1px solid #A1C7EC;
+            border-right: 1px solid #A1C7EC;
+            border-bottom: 1px solid #A1C7EC;
+        }
+
+            .lzCalY table td.year
+            {
+                border: 1px solid #4586c8;
+                background: #5aa0e7;
+                color: white;
+            }
+
+            .lzCalY table td a
+            {
+                color: #3c3c3c;
+            }
+
+                .lzCalY table td a.disable
+                {
+                    color: #ccc;
+                    cursor: default;
+                }
+
+                    .lzCalY table td a.disable:hover
+                    {
+                        background: white;
+                        color: #ccc;
+                    }

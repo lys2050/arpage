@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+    <title>AutoSDL</title>
+    <link href="../assets/global/css/components.css" rel="stylesheet" type="text/css" />
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script src="../assets/local/script/sdlbase.js"></script>
+    <script src="../assets/local/script/sdltool.js"></script>
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+   <h3 class="ws-title">table控件使用说明</h3>
+    <div class="ws-title-infor pull-right"><strong>Example Tab</strong></div>
+    <hr/>
+    <div class="ws-example nav-pills-tab">
+        <div class="navs-channel">
+            <ul class="nav nav-pills" id="datetype" data-target="sampletab">
+                <li class="active">
+                    <a data-value="1" href="javascript:;">按天</a>
+                </li>
+                <li>
+                    <a data-value="3" href="javascript:;">按月</a>
+                </li>
+                <li>
+                    <a data-value="4" href="javascript:;">按季度</a>
+                </li>
+                <li>
+                    <a data-value="5" href="javascript:;">按半年</a>
+                </li>
+                <li>
+                    <a data-value="6" href="javascript:;">按年</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr/>
+    <div class="ws-title-infor text-primary">
+        <p>给ul设置一个id值，如‘datetype’。</p>
+    </div>   
+    <div class="ws-code">             
+        <pre class="ws-code-html">
+            <ul class="nav nav-pills" id="datetype" data-target="sampletab">
+                <li class="active">
+                    <a data-value="1" href="javascript:;">按天</a>
+                </li>
+                <li>
+                    <a data-value="3" href="javascript:;">按月</a>
+                </li>
+                <li>
+                    <a data-value="4" href="javascript:;">按季度</a>
+                </li>
+                <li>
+                    <a data-value="5" href="javascript:;">按半年</a>
+                </li>
+                <li>
+                    <a data-value="6" href="javascript:;">按年</a>
+                </li>
+            </ul>
+        </pre>
+    </div>
+    <hr/>
+    <div class="ws-title-infor text-primary">
+        <p>创建一个simpletab类，该类继承sdltool.tab_sample的init和bindChange方法。实例化一个simpletab对象，传递一个id参数（html结构中ul的id值），并自动调用init方法实现切换效果</p>
+    </div>  
+    <div class="ws-code">             
+        <pre>
+            var simpletab=sdltool.tab_sample.extend({
+                init:function(id) {
+                    var that=this;
+                    that._super(id);
+                    that.bindChange();
+                },
+                bindChange:function(){
+                    var that=this;
+                    that._super();
+                }
+            }); 
+            var  tab=new simpletab('datetype');
+        </pre>
+    </div>
+    <script>
+        var simpletab=sdltool.tab_sample.extend({
+            init:function(id) {
+                var that=this;
+                that._super(id);
+                that.bindChange();
+            },
+            bindChange:function(){
+                var that=this;
+                that._super();
+            }
+        }); 
+        var  tab=new simpletab('datetype');
+    </script>    
+    <script type="text/javascript" src="../assets/mould/js/tab.js"></script>    
+</body>
+</html>

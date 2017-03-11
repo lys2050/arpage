@@ -1,0 +1,21 @@
+
+/*login start*/
+.dp-icon1-search{
+    position: static;
+}
+.navbar-inverse{background: #3391D4;}
+.navbar-brand{
+    position: relative;
+}
+#navbar{
+    position: relative;
+}
+.navbar-inverse .navbar-nav>li>a{color: #fff; font-size: 16px;font-weight: bold;}
+.navbar-inverse .navbar-toggle{border-width:0px; }
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{background:none;}
+.dp-login{margin-left: 165px;}
+.dropdown-menu{min-width: 184px;padding: 5px;}
+.dp-list-right h2{margin-top: 0;}
+.dp-list-right p{margin: 0;}
+.dp-list li{margin-bottom: 20px;}
+/*login end*/

@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+    <title>AutoSDL</title>
+    <!--模板页样式-->
+    <link href="../assets/global/plugins/table/jquerytable.css" rel="stylesheet" />
+    <link href="../assets/global/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script src="../assets/global/plugins/Chart/highcharts.js"></script>
+    <script type="text/javascript" src="../assets/mould/js/tab.js"></script>
+    <script src="../assets/global/plugins/table/jquerytable.js"></script>    
+    <script src="../assets/local/script/sdlbase.js"></script>
+    <script src="../assets/local/script/sdltool.js"></script>
+    <script src="../assets/local/script/sdlpagebase.js"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../assets/local/script/sdldatepicker.js"></script>
+</head>
+<body>
+
+    <h3 class="ws-title">折线图</h3>
+    <div class="ws-title-infor"></div>
+    <ul class="nav nav-pills nav-justified nav-tabs">
+          <li role="presentation" class="active"><a href="javascript:;">样式</a></li>
+          <li role="presentation"><a href="javascript:;">html结构</a></li>
+          <li role="presentation"><a href="javascript:;">js说明</a></li>
+    </ul>
+    <div class="ws-example nav-pills-tab">
+            <div class="navs-channel">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- Begin 页面参数 -->
+                        <div class="portlet-body form">
+                            <form class="form-horizontal" role="form" id="formContent" method="post">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">日期类型：</label>
+                                        <div class="col-sm-6 control-label">
+                                            <ul class="nav nav-pills" id="datetype" data-target="sampletab">
+                                                <li class="active">
+                                                    <a data-value="1" href="javascript:;" params="2015-06-12,2015-06-18">按天</a>
+                                                </li>
+                                                <li>
+                                                    <a data-value="3" href="javascript:;" params="2015-04-24,2015-06-18">按月</a>
+                                                </li>
+                                                <li>
+                                                    <a data-value="4" href="javascript:;" params="2015-02-01,2015-05-31">按季度</a>
+                                                </li>
+                                                <li>
+                                                    <a data-value="5" href="javascript:;" params="2015-02-01,2015-05-31">按半年</a>
+                                                </li>
+                                                <li>
+                                                    <a data-value="6" href="javascript:;" params="2015-02-01,2015-05-31">按年</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">选择日期：</label>
+
+                                        <div class="col-sm-8">
+                                            <div class="btn btn-default" id="reportrange">
+                                                <i class="fa fa-calendar"></i>
+                                                &nbsp; <span></span>
+                                                <b class="fa fa-angle-down"></b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label"></label>
+                                        <div class="col-sm-1">
+                                            <a class="btn btn-primary" href="javascript:;" id="btnSubmit" data-toggle="search">开始查询<i class="fa fa-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <!-- Begin 表格 -->
+                        <div class="portlet box blue-madison">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i></i>折线图<span datatype="Quota"></span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <a class="btn btn-default" data-toggle="export" href="javascript:;" id="btnDown">下载数据</a>
+                                <div id="ctcontainer" class="tab-div">
+                                </div>
+                               <div id="tbcontainer" class="tab-div">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End 表格 -->
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+
+    <div class="ws-code nav-pills-tab">             
+        <pre class="ws-code-html">                        
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Begin 页面参数 -->
+                    <div class="portlet-body form">
+                        <form class="form-horizontal" role="form" id="formContent" method="post">
+                            <div class="form-body">
+
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <h3 class="page-title">测试折线图</h3>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">日期类型：</label>
+                                    <div class="col-sm-6 control-label">
+                                        <ul class="nav nav-pills" id="datetype" data-target="sampletab">
+                                            <li class="active">
+                                                <a data-value="1" href="javascript:;" params="2015-06-12,2015-06-18">按天</a>
+                                            </li>
+                                            <li>
+                                                <a data-value="3" href="javascript:;" params="2015-04-24,2015-06-18">按月</a>
+                                            </li>
+                                            <li>
+                                                <a data-value="4" href="javascript:;" params="2015-02-01,2015-05-31">按季度</a>
+                                            </li>
+                                            <li>
+                                                <a data-value="5" href="javascript:;" params="2015-02-01,2015-05-31">按半年</a>
+                                            </li>
+                                            <li>
+                                                <a data-value="6" href="javascript:;" params="2015-02-01,2015-05-31">按年</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">选择日期：</label>
+
+                                    <div class="col-sm-8">
+                                        <div class="btn btn-default" id="reportrange">
+                                            <i class="fa fa-calendar"></i>
+                                            &nbsp; <span></span>
+                                            <b class="fa fa-angle-down"></b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"></label>
+                                    <div class="col-sm-1">
+                                        <a class="btn btn-primary" href="javascript:;" id="btnSubmit" data-toggle="search">开始查询<i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <!-- Begin 表格 -->
+                    <div class="portlet box blue-madison">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i></i>测试折线图<span datatype="Quota"></span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <a class="btn btn-default" data-toggle="export" href="javascript:;" id="btnDown">下载数据</a>
+                            <div id="ctcontainer" class="tab-div">
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End 表格 -->
+                </div>
+            </div>
+        </pre>
+    </div>
+    <div class="ws-code nav-pills-tab">             
+        <pre>
+            var simplepage = sdlpagebase.Page.extend({
+                init: function (opt) {
+                    var that = this;
+                    //pagebase 初始化，返回status及rst ,执行回调函数postcallback;
+                    that._super(opt);
+                },
+                //请求数据,回调函数
+                //status:请求状态 
+                //rst:返回数据
+                postcallback: function (status, rst) {
+                    var that = this;
+                    //调用sdlbase.Json.GetdsFmRst(),格式化rst,绑定折线图
+                    that.chartBind(sdlbase.Json.GetdsFmRst(rst, "Dealer_Clue_Get400"));
+                },      
+                chartBind: function (ds) {
+                    //创建一个折线图实例，自动调用init进行初始化
+                    var chart = new sdltool.chart_spline({
+                        //设置表格容器id
+                        renderto: "ctcontainer",
+                        //折线图坐标数据
+                        data: ds,
+                        //x轴坐标值
+                        namecol: "dim_day_id",
+                        //设置图例名称，及对应参数
+                        groupcol: [
+                                { title: "PV", val: "call_ord_num" },
+                                { title: "UV", val: "call_ord_rd_num" },
+                                { title: "人均停留时长", val: "call_ord_ind_num" }
+                        ]
+                    });
+                    //根据tbinstance中设置的参数生成折线图
+                    chart.render();
+                }
+            })
+
+            //创建一个simplepage实例
+            new simplepage({
+            //调用init初始化，传递参数
+                postdata: [
+                    {
+                        //存储过程名称，根据name值获取后台数据
+                        Name: "Dealer_Clue_Get400",
+                    }
+                ]
+            });
+        </pre>
+    </div>
+    <script type="text/javascript">
+        var simplepage = sdlpagebase.Page.extend({
+            init: function (opt) {
+                var that = this;
+                that._super(opt);
+            },
+            postcallback: function (status, rst) {
+                var data = {
+                    "Status": "Success", "Data": [{
+                        "Name": "DP_Dealer",
+                        "DataSets": [{
+                            "Name": "Dealer_Clue_Get400", "Tables": [{
+                                "Columns":
+                                    ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                                "Rows": [
+                                    ['2012', "212", "323", "122"],
+                                    ["2013", "345", "232", "121"],
+                                    ["2014", "342", "134", "523"],
+                                    ["2015", "163", "655", "343"]
+                                ]
+                            }]
+                        }]
+                    }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+                };
+                var that = this;
+                that.chartBind(sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"));
+            },          
+            chartBind: function (ds) {
+                var chart = new sdltool.chart_spline({
+                    renderto: "ctcontainer",
+                    data: ds,
+                    namecol: "dim_day_id",
+                    groupcol: [
+                            { title: "PV", val: "call_ord_num" },
+                            { title: "UV", val: "call_ord_rd_num" },
+                            { title: "人均停留时长", val: "call_ord_ind_num" }
+                    ]
+                });
+                chart.render();
+            }
+        })
+        new simplepage({
+            postdata: [
+                {
+                    Name: "Dealer_Clue_Get400",
+                }
+            ]
+        });
+
+    </script>
+
+</body>
+</html>

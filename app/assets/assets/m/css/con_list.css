@@ -1,0 +1,26 @@
+/*list start*/
+.navbar-inverse {
+    background-color:#3391D4!important;
+}
+.navbar-inverse .navbar-toggle{
+    border-color:#3391D4!important;  
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{
+    background-color:#3391D4!important;
+}
+.navbar-brand{
+    padding:10px 15px;
+}
+.navbar-inverse .navbar-nav>li>a{color: #dddddd;}
+@media (min-width: 768px){
+    .navbar-nav {
+        float: left;
+        margin:0px 12px;
+    }
+            
+}  
+.row{
+    margin-right: -10px;
+}
+.bs-example-tabs{margin-top: 70px;}
+/*list end*/

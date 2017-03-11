@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script src="../assets/local/script/sdlbase.js"></script>
+    <script src="../assets/local/script/sdltool.js"></script>
+    <script src="../assets/local/script/sdlpagebase.js"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <style>
+        .container-fluid div.box{
+            width:700px;
+            height:400px;
+            border :1px solid #0ff;
+            margin :10px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div class="container-fluid">
+        <div class="box" id="line"></div>
+        <div class="box" id="bar"></div>
+        <div class="box" id="stacked"></div>
+        <div class="box" id="pie"></div>
+        <div class="box" id="radar"></div>
+        <div class="box" id="scatter"></div>
+        <div class="box" id="funnel"></div>
+        <div class="box" id="map"></div>
+    </div>
+     
+    <!-- ECharts单文件引入 -->
+    <script src="../assets/global/plugins/echart/echarts-all.js"></script>
+    <!--<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>-->
+    
+    <script>
+
+        var data = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                            ['20120101', "23.11", "32.3", "12.2"],
+                            ["20130103", "3.452222", "23.2", "10.0"],
+                            ["20140109", "3.42", "13.4", "52.3"],
+                            ["20150109", "1.63", "14.0", "34.3"],
+                            ["20160109", "19.3", "65.5", "39.3"],
+                            ["20170109", "29.3", "15.5", "29.3"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        //折线图
+        var chart = new sdltool.echarts_spline({
+            container: "#line",
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num",datatp:"date" },
+                    { title: "UV", val: "call_ord_rd_num", datatp: "decimal" },
+                    { title: "人均停留时长", val: "call_ord_ind_num", datatp: { key: "percent", reserve: "3", yUnit: "%" } }
+            ],
+            title: '折线图标题',
+        });
+        chart.render();
+
+        ////柱状图
+        var chartbar = new sdltool.echarts_bar({
+            container: "#bar",
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num", datatp: { key: "decimal", reserve: "3",yUnit:"%" } },
+                    { title: "UV", val: "call_ord_rd_num" ,datatp: { key: "percent", reserve: "3" } },
+                    { title: "人均停留时长", val: "call_ord_ind_num" ,datatp: { key: "decimal"} }
+            ],
+            title:'柱状图标题',
+        });
+        chartbar.render();
+        //堆积柱状图
+        var datastacked = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                            ['2012', "110000", "32003", "10022"],
+                            ["2013", "34500", "23200", "10000"],
+                            ["2014", "34200", "134000", "52003"],
+                            ["2015", "163000", "4000", "34300"],
+                            ["2016", "193000", "65500", "39003"],
+                            ["2017", "29300", "15500", "29003"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        }
+        var stacked =new sdltool.echarts_stacked({
+            container: "#stacked",
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" ,datatp:{stack: '搜索引擎'}},
+                    { title: "UV", val: "call_ord_rd_num", datatp: { key: "percent", reserve: "3", yUnit: "%", markLine: true } },
+                    { title: "人均停留时长", val: "call_ord_ind_num", datatp:{stack: '搜索引擎'} }
+            ],
+            title: '堆积柱状图标题',
+        });
+        stacked.render();
+        ////饼图
+        var datapie = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            [ "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                            ["2112", "323", "122"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var chartpie = new sdltool.echarts_pie({
+            container: "#pie",
+            title: '饼图标题',
+         
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num" }
+            ],
+            data: sdlbase.Json.GetdsFmRst(datapie, "Dealer_Clue_Get400"),
+        });
+        chartpie.render();
+        //雷达
+        var chartradar =new sdltool.echarts_radar({
+            container: "#radar",
+            title: '雷达图标题',
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num",datatp: { key: "percent", reserve: "3" }  }
+            ],
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+        });
+        chartradar.render();
+        //散点
+        var datascatter = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["call_ord_num", "call_ord_rd_num"],
+                        "Rows": [
+                              [10,13],
+                              [-89,-59],
+                              [98,100],
+                              [82,23],
+                              [11,12],
+                              [70,80],
+                              [-63,78],
+                              [53, 35],
+                              [63, 78]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var echarts_scatter = new sdltool.echarts_scatter({
+            container: "#scatter",
+            title: '散点图标题',
+            groupcol: [
+                    { title: "PV", val: "call_ord_num", datatp: { yUnit: 'cm', xUnit: 'kg',zUnit:'个' } },
+                    { title: "UV", val: "call_ord_rd_num"}
+            ],
+            data: sdlbase.Json.GetdsFmRst(datascatter, "Dealer_Clue_Get400"),
+        });
+        echarts_scatter.render();
+
+
+
+        var datafunnel = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            [ "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                             ["50", "80", "100"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var funnel = new sdltool.echarts_funnel({
+            container: "#funnel",
+            title: '漏斗图标题',
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num"}
+            ],
+            data: sdlbase.Json.GetdsFmRst(datafunnel, "Dealer_Clue_Get400"),
+        });
+        funnel.render();
+        var datamap = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                             ['北京', "0", "32003", "10022"],
+                             ['天津', "506632", "80366", "16660"],
+                             ['上海', "110000", "32003", "10022"],
+                             ['重庆', "34500", "23200", "10000"],
+                             ['河北', "34200", "134000", "52003"],
+                             ['河南', "163000", "4000", "34300"],
+                             ['云南', "193000", "65500", "39003"],
+                             ['辽宁', "29300", "15500", "29003"],
+                             ['黑龙江', "1100", "32003", "10022"],
+                             ['湖南', "34500", "23200", "10000"],
+                             ['安徽', "34200", "134000", "52003"],
+                             ['山东', "163000", "4000", "34300"],
+                             ['新疆', "193000", "65500", "39003"],
+                             ['江苏', "29300", "15500", "29003"],
+                             ['浙江', "110000", "32003", "10022"],
+                             ['江西', "34500", "23200", "10000"],
+                             ['湖北', "34200", "134000", "52003"],
+                             ['广西', "163000", "4000", "34300"],
+                             ['甘肃', "193000", "65500", "39003"],
+                             ['山西', "29300", "15500", "29003"],
+                             ['内蒙古', "110000", "32003", "10022"],
+                             ['陕西', "34500", "23200", "10000"],
+                             ['吉林', "34200", "134000", "52003"],
+                             ['福建', "163000", "4000", "34300"],
+                             ['贵州', "193000", "65500", "39003"],
+                             ['广东', "29300", "15500", "29003"],
+                             ['青海', "1100", "32003", "10022"],
+                             ['西藏', "34500", "23200", "10000"],
+                             ['四川', "34200", "134000", "52003"],
+                             ['宁夏', "163000", "4000", "34300"],
+                             ['海南', "193000", "65500", "39003"],
+                             ['台湾', "29300", "15500", "29003"],
+                             ['香港', "110000", "32003", "10022"],
+                             ['澳门', "34500", "23200", "10000"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var map = new sdltool.echarts_map({
+            container: "#map",
+            title: '地图标题',
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num"}
+            ],
+            data: sdlbase.Json.GetdsFmRst(datamap, "Dealer_Clue_Get400"),
+        });
+        map.render();
+    </script>
+</body>

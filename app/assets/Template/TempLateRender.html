@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户画像</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Begin 页面参数 -->
+            <div class="portlet-body form">
+                <form class="form-horizontal" role="form" id="formContent" method="post">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="col-md-9">
+                                <h3 class="page-title">用户画像
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-1 control-label">手机号：</label>
+                            <input type="text" style="width: 20%"
+                                class="form-control" id="phonenum"
+                                ext-attr="encode$phonenum$1"
+                                data-target="input"
+                                query-type="1"
+                                data-verify="phone"
+                                maxlength="11"
+                                placeholder="请输入手机号" />
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-1 control-label"></label>
+                            <a class="btn red-orange" href="#" id="btnSubmit" data-toggle="search">开始查询<i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Begin 表格 -->
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#businessinfo" data-toggle="tab">商业信息
+                </a>
+            </li>
+            <li>
+                <a href="#useinfo" data-toggle="tab">用户信息</a>
+
+            </li>
+            <li>
+                <a href="#useInterest" data-toggle="tab">用户兴趣</a>
+
+            </li>
+
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="businessinfo">
+            </div>
+            <div class="tab-pane fade" id="useinfo">
+            </div>
+            <div class="tab-pane fade" id="useInterest">
+            </div>
+        </div>
+        <!-- End 表格 -->
+    </div>
+    <script id="business" type="text/html">
+        <ul>
+            {{each result.item_list as value i}}
+        <li style="color: blue; font-weight: bold">{{value.parent_text}}</li>
+            {{each value.parent_list as value i}}
+                    <li>{{value.child_text}}：
+                         <form class="form-inline" role="form">
+                             {{each value.child_list as childvalue i}}
+                                {{if value.child_numb!="1"}}
+                                 <div class="form-group">
+                                     {{each childvalue as arrayvalue i}}
+                                        <p class="help-block">{{arrayvalue}}</p>
+                                     {{/each}}
+                                 </div>
+                             {{else}}
+                                    <div class="form-group">
+                                        <p class="help-block">{{childvalue}}</p>
+                                    </div>
+                             {{/if}}
+                             {{/each}}
+                         </form>
+                    </li>
+            {{/each}}
+            {{/each}}
+        </ul>
+    </script>
+    <script>
+        var data = {
+            "return_code": 1,
+            "message": "用户画像商业信息",
+            "result": {
+                "item_list": [
+                   {
+                       "parent_rank": 1,
+                       "parent_text": "用户有车无车",
+                       "parent_numb": "1",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "是否有车",
+                              "child_numb": "1",
+                              "child_list": ["是"]
+                          }
+                       ]
+                   },
+                   {
+                       "parent_rank": 2,
+                       "parent_text": "用户购买力",
+                       "parent_numb": "1",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "购买能力",
+                              "child_numb": "1",
+                              "child_list": ["10万～15万"]
+                          }
+                       ]
+                   },
+                   {
+                       "parent_rank": 3,
+                       "parent_text": "用户购车转化周期",
+                       "parent_numb": "1",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "购车周期",
+                              "child_numb": "1",
+                              "child_list": ["H（一周内转化）", "购车概率：65%"]
+                          }
+                       ]
+                   },
+                   {
+                       "parent_rank": 4,
+                       "parent_text": "用户购买意向度",
+                       "parent_numb": "1",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "关注车型",
+                              "child_numb": "3",
+                              "child_list": [
+                                 ["奔驰E级 2015款 E 260 L 运动时尚型", "购车周期：H", "购车概率：70%"],
+                                 ["赛欧 2015款 赛欧3 1.5L AMT幸福天窗版", "购车周期：H", "购车概率：60%"],
+                                 ["奔驰E级 2015款 E 260 L 运动豪华型", "购车周期：A", "购车概率：55%"]
+                              ]
+                          }
+                       ]
+                   },
+                   {
+                       "parent_rank": 5,
+                       "parent_text": "用户线索潜客",
+                       "parent_numb": "1",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "关注车型",
+                              "child_numb": "3",
+                              "child_list": [
+                                 ["奔驰E级 2015款 E 260 L 运动时尚型", "潜客概率：10.5%"],
+                                 ["赛欧 2015款 赛欧3 1.5L AMT幸福天窗版", "潜客概率：5.5%"],
+                                 ["奔驰E级 2015款 E 260 L 运动豪华型", "潜客概率：5.0%"]
+                              ]
+                          }
+                       ]
+                   }
+                ]
+            }
+        };
+        var datauser = {
+            "return_code": 1,
+            "message": "用户画像基础信息",
+            "result": {
+                "item_list": [
+                   {
+                       "parent_rank": 1,
+                       "parent_text": "用户地理信息",
+                       "parent_numb": "2",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "用户省份",
+                              "child_numb": "1",
+                              "child_list": ["北京", "上海", "江苏"]
+                          },
+                          {
+                              "child_rank": 2,
+                              "child_text": "用户城市",
+                              "child_numb": "1",
+                              "child_list": ["北京", "上海", "南京"]
+                          }
+                       ]
+                   },
+                   {
+                       "parent_rank": 2,
+                       "parent_text": "用户上下文信息",
+                       "parent_numb": "",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "用户终端",
+                              "child_numb": "1",
+                              "child_list": ["pc"]
+                          },
+                          {
+                              "child_rank": 2,
+                              "child_text": "手机平台",
+                              "child_numb": "1",
+                              "child_list": ["iPhone OS"]
+                          },
+                          {
+                              "child_rank": 3,
+                              "child_text": "手机品牌",
+                              "child_numb": "1",
+                              "child_list": ["IPHONE"]
+                          },
+                          {
+                              "child_rank": 4,
+                              "child_text": "手机网络",
+                              "child_numb": "1",
+                              "child_list": ["3G"]
+                          },
+                          {
+                              "child_rank": 5,
+                              "child_text": "手机分辨率",
+                              "child_numb": "1",
+                              "child_list": ["1242x2208"]
+                          },
+                          {
+                              "child_rank": 6,
+                              "child_text": "应用分发渠道",
+                              "child_numb": "1",
+                              "child_list": ["App Store"]
+                          },
+                          {
+                              "child_rank": 7,
+                              "child_text": "应用版本",
+                              "child_numb": "1",
+                              "child_list": ["4.6.6"]
+                          }
+                       ]
+                   }
+                ]
+            }
+        }
+        var dataInterest = {
+            "return_code": 1,
+            "message": "用户画像兴趣信息",
+            "result": {
+                "item_list": [
+                   {
+                       "parent_rank": 1,
+                       "parent_text": "汽车兴趣",
+                       "parent_numb": "7",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "派系偏好",
+                              "child_numb": "1",
+                              "child_list": ["国产", "德系"]
+                          },
+                          {
+                              "child_rank": 2,
+                              "child_text": "产地偏好",
+                              "child_numb": "1",
+                              "child_list": ["国产", "合资"]
+                          },
+                          {
+                              "child_rank": 3,
+                              "child_text": "级别偏好",
+                              "child_numb": "1",
+                              "child_list": ["中型SUV", "小型SUV"]
+                          },
+                          {
+                              "child_rank": 4,
+                              "child_text": "厂商偏好",
+                              "child_numb": "1",
+                              "child_list": ["比亚迪", "长安福特"]
+                          },
+                          {
+                              "child_rank": 5,
+                              "child_text": "品牌偏好",
+                              "child_numb": "1",
+                              "child_list": ["比亚迪", "福特"]
+                          },
+                          {
+                              "child_rank": 6,
+                              "child_text": "车系偏好",
+                              "child_numb": "1",
+                              "child_list": ["奔驰E级", "赛欧"]
+                          },
+                          {
+                              "child_rank": 7,
+                              "child_text": "车型偏好",
+                              "child_numb": "1",
+                              "child_list": ["奔驰E级 2015款 E 260 L 运动时尚型", "赛欧 2015款 赛欧3 1.5L AMT幸福天窗版"]
+                          }
+                       ]
+                   },
+                   {
+                       "parent_rank": 2,
+                       "parent_text": "用户行为偏好",
+                       "parent_numb": "6",
+                       "parent_list": [
+                          {
+                              "child_rank": 1,
+                              "child_text": "产品偏好",
+                              "child_numb": "2",
+                              "child_list": [
+                                 ["论坛", "停留时间：340秒", "访问频次：4次"],
+                                 ["二手车", "停留时间：190秒", "访问频次：2次"]
+                              ]
+                          },
+                          {
+                              "child_rank": 2,
+                              "child_text": "时段偏好",
+                              "child_numb": "1",
+                              "child_list": ["10点～11点", "18点～20点"]
+                          },
+                          {
+                              "child_rank": 3,
+                              "child_text": "小时偏好",
+                              "child_numb": "1",
+                              "child_list": ["10", "19", "20"]
+                          }
+                       ]
+                   }
+                ]
+            }
+        }
+
+        var simplepage = sdlpagebase.Page.extend({
+            init: function (opt) {
+                var that = this;
+                //传递this,callback时使用
+                opt["callback"] = that;
+                //pagebase 初始化
+                that._super(opt);
+            },
+            //请求数据,回调函数
+            //evt:当期对象
+            //status:请求状态 
+            //rst:返回数据
+            postcallback: function (evt, status, rst) {
+                evt.templateBind(rst);
+            },
+            //模版
+            templateBind: function (ds) {
+                var html = template('business', data);
+                var htmluser = template('business', datauser);
+                var htmlinterest = template('business', dataInterest);
+                document.getElementById('businessinfo').innerHTML = html;
+                document.getElementById('useinfo').innerHTML = htmluser;
+                document.getElementById('useInterest').innerHTML = htmlinterest;
+            },
+        })
+
+        // 调用init初始化,初始化查询
+        new simplepage({
+            //proc:存储过程名称
+            postdata: [
+                {
+                    //存储过程名称
+                    Name: "GetNormalData",
+                }
+            ]
+        });
+    </script>
+</body>
+</html>

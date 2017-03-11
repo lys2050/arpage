@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../assets/local/css/main.css" rel="stylesheet" />
+    <link href="../assets/global/plugins/table/jquerytable.css" rel="stylesheet" />
+
+    <link href="../assets/global/plugins/select2/select2.css" rel="stylesheet" />
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script src="../assets/global/plugins/table/jquerytable.js"></script>
+    <script src="../assets/global/plugins/Chart/highcharts.js"></script>
+    <script src="../assets/global/plugins/select2/select2.min.js"></script>
+    <script src="../assets/local/script/sdlbase.js"></script>
+    <script src="../assets/local/script/sdltool.js"></script>
+    <script src="../assets/local/script/sdlpagebase.js"></script>
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../assets/local/script/sdldatepicker.js"></script>
+</head>
+
+<body>
+    <div class="tab-content">
+        <div class="tab-content-item current" id="tab-1">
+            <div class="select-box">
+                <ul>
+                    <li id="series">
+                        <span class="select-name">选择日期： </span>
+                        <div class="btn btn-default" id="reportrange">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp; <span></span>
+                            <b class="fa fa-angle-down"></b>
+                        </div>
+                    </li>
+                    <li id="cmpseries">
+                        <span class="select-name">选择车系： </span>
+                        <select id="Select1" data-type="asd" query-type="1" data-target="select" data-for="Select2" class="js-example-data-array"></select>
+                        <select id="Select2" data-type="rr" query-type="1" data-target="select" class="js-example-data-array"></select>
+                        <select id="Select3" data-type="3" query-type="1" data-target="select" class="js-example-data-array"></select>
+                        <select id="Select4" data-type="4" query-type="1" data-target="select" class="js-example-data-array"></select>
+                    </li>
+
+                    <li><span class="btn-relative">
+                        <a id="btnSubmit" class="btn btn-org fn-left" href="#">
+                            <i class="icon16 glass"></i><span>开始查询</span></a>
+
+                    </span>
+                        <dl id="searchedItem" class="term fn-left">
+                            <dt>已选条件：</dt>
+
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <label for="self">自定义查询</label>
+    <input type="radio" id="self" />
+    <div id="ctcontainer" class="tab-div">
+    </div>
+
+    <div id="tbcontainer" class="tab-div">
+    </div>
+    <script type="text/javascript">
+        var simplepage = sdlpagebase.Page.extend({
+            init: function (opt) {
+                var that = this;
+                //传递this,callback时使用
+                opt["callback"] = that;
+                //pagebase 初始化
+                that._super(opt);
+                //绑定自定义事件
+                that.pageEvent();
+            },
+            //请求数据,回调函数
+            //evt:当期对象
+            //status:请求状态 
+            //rst:返回数据
+            postcallback: function (evt, status, rst) {
+                var data = {
+                    "Status": "Success", "Data": [{
+                        "Name": "DP_Dealer", "DataSets": [{
+                            "Name": "Dealer_Clue_Get400", "Tables": [{
+                                "Columns"
+                    : ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num", "pc_call_ord_num", "pc_call_ord_rd_num"], "Rows": [["20150630", "68530", "58338", "40476", "38482", "31730", "21970", "30048", "26742"
+                    , "18959", "9767", "15", "6945", "5848", "28383", "21190", "30683", "23209"], ["20150430", "93758", "80525", "54420"
+                    , "56138", "47695", "32085", "37620", "33025", "22995", "12647", "17", "7272", "7891", "40286", "26013", "44602", "29066"
+                    ], ["20150401", "77342", "69552", "47137", "45725", "41208", "27077", "31617", "28545", "20637"
+                    , "13018", "16", "8157", "8149", "33617", "22294", "36591", "24409"]]
+                            }]
+                        }]
+                    }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01"
+, "Type": "Json"
+                };
+                evt.tableBind(data);
+            },
+            //页面事件绑定
+            pageEvent: function () {
+                var that = this;
+                //自定义内容
+                var opt = {
+                    //proc:存储过程名称,自定义参数
+                    postdata: [{ Name: "GetNormalData", "Parameters": [{ Name: "parm1", Value: "parmvalue", DataType: 1 }] },
+                               { Name: "GetNormalData1", "Parameters": [{ Name: "parm11", Value: "parmvalue1", DataType: 2 }] }]
+                }
+                opt["callback"] = that;
+                //自定义查询,查询完成调用postcallback
+                $("#self").click(function () {
+                    that.getdata(opt);
+                })
+            },
+            //分页-表格
+            tableBind: function () {
+                var that = this;
+                //定义表格对应存储过程以及自定义参数
+                var parm = {
+                    postdata:
+                        [{
+                            Name: "GetNormalData",
+                            "Parameters": [{ Name: "parm1", Value: "parmvalue", DataType: 1 }]
+                        }]
+                };
+                var tbinstance = new sdltool.Pagingtable({
+                    renderto: "tbcontainer",
+                    postparm: that.getQuery(parm),
+                    coloums: [
+                        { title: "日期", datatp: "date" },
+                        { title: "PV" },
+                        { title: "UV" },
+                        { title: "人均停留时长" },
+                        { title: "PV/UV", datatp: { reserve: 2 } },
+                        { title: "PV%UV", datatp: { reserve: 2 } }],
+                });
+                //table render
+                tbinstance.render();
+            },
+        })
+
+        // 调用init初始化,初始化查询
+        new simplepage({
+            postdata:
+                [{
+                    Name: "GetNormalData",
+                    "Parameters": [{ Name: "parm1", Value: "parmvalue", DataType: 1 }]
+                }],
+            //为true或不传递时,初始化查询数据，
+            //false时，初始化不查询数据，
+            isInitPost: true;
+        });
+    </script>
+</body>
+
+</html>

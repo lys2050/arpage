@@ -1,0 +1,232 @@
+﻿<div class="row">
+
+    <div class="col-md-12">
+
+        <!-- Begin 页面参数 -->
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form" id="formContent" method="post" action="Data/DataControl.ashx">
+                <input type="hidden" id="postPageID" name="postPageID" value="13101012" />
+                <!-- 数据来源类型 =1：pc    =2：M -->
+                <input type="hidden" id="postDataType" name="postDataType" value="pc" />
+                <!-- 来源是否免费 =-1：全部 =1：免费 =0：按月 -->
+                <input type="hidden" id="postIsFree" name="postIsFree" value="-1" />
+                <!-- 日期类型 =1：按天 =2：按月 -->
+                <input type="hidden" id="postDateType" name="postDateType" value="1" />
+                <input type="hidden" id="postChart" name="postChart" value="" />
+                <input type="hidden" id="postTop" name="postTop" value="10" />
+                <div class="form-body">
+
+                    <div class="form-group">
+                        <div class="col-md-9">
+                            <h3 class="page-title">
+                                来源统计-多渠道
+                            </h3>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul class="nav nav-pills" id="tabDataType">
+                                <li class="active" style="width: 49px;" params="pc">
+                                    <a data-toggle="tab" href="#tab_2_2" style="text-align:center;">
+                                        PC
+                                    </a>
+                                </li>
+                                <li style="width: 49px;" params="m">
+                                    <a data-toggle="tab" href="#tab_2_2" style="text-align:center;">
+                                        M
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">选择日期：</label>
+                        <div class="col-md-8">
+                            <div class="btn btn-default" id="reportrange">
+                                <i class="fa fa-calendar"></i>
+                                &nbsp; <span></span>
+                                <b class="fa fa-angle-down"></b>
+                                <input type="hidden" id="startDate" name="startDate" value="" />
+                                <input type="hidden" id="endDate" name="endDate" value="" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="nav nav-pills" id="tabDateType">
+                                <li class="active" params="1">
+                                    <a data-toggle="tab" href="#tab_2_2">
+                                        按天
+                                    </a>
+                                </li>
+                                <li params="2">
+                                    <a data-toggle="tab" href="#tab_2_2">
+                                        按月
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">来源：</label>
+                        <div class="col-md-2" id="divRef">
+                            <select class="bs-select form-control" id="selRef" name="selRef" data-live-search="true" data-size="6">
+                                <option value="-1">全部</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2" id="divRef2">
+                            <select class="bs-select form-control" id="selRef2" name="selRef2" data-live-search="true" data-size="8">
+                                <option value="-1">全部</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="nav nav-pills" id="tabIsFree">
+                                <li class="active" params="-1">
+                                    <a data-toggle="tab" href="#tab_2_2">
+                                        全部
+                                    </a>
+                                </li>
+                                <li params="0">
+                                    <a data-toggle="tab" href="#tab_2_2">
+                                        付费
+                                    </a>
+                                </li>
+                                <li params="1">
+                                    <a data-toggle="tab" href="#tab_2_2">
+                                        免费
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">业务：</label>
+                        <div class="col-md-2" id="divSite">
+                            <select class="bs-select form-control" id="selSite" name="selSite" data-live-search="true" data-size="6">
+                                <option value="-1">一级栏目</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2" id="divCategory">
+                            <select class="bs-select form-control" id="selCategory" name="selcategory" data-live-search="true" data-size="8">
+                                <option value="-1">二级栏目</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2" id="divCategorySub">
+                            <select class="bs-select form-control" id="selCategorySub" name="selcategorySub" data-live-search="true" data-size="8">
+                                <option value="-1">三级栏目</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">流量：</label>
+                        <div class="col-md-8">
+                            <div class="radio-list" id="divQuota">
+                                <label class="radio-inline">
+                                    <input type="radio" name="quota" id="optionsRadios1" value="1" checked="checked">PV
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="quota" id="optionsRadios2" value="2">UV
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="quota" id="optionsRadios3" value="3">人均停留时长
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="quota" id="optionsRadios4" value="4">PV/UV
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="quota" id="optionsRadios5" value="5">访次
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="btn red-orange" href="#" id="btnSearch" data-toggle="search">开始查询<i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <!-- Begin tiles -->
+
+        <div class="portlet box blue-madison">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i></i>渠道流量趋势-<span datatype="Quota"></span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse">
+                    </a>
+
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                <div style="margin-bottom: 20px; padding: 15px; ">
+                    <div class="col-md-6" id="divSubproduct" style="float:none;">
+                        <select id="selSubproduct" name="selSubproduct" class="form-control select2" multiple></select>
+                    </div>
+
+                </div>
+                <div id="chart_2" class="chart">
+                </div>
+            </div>
+        </div>
+        <!-- End Chart -->
+        <!-- Begin 表格 -->
+        <div class="portlet box blue-madison">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i></i>渠道流量详情-<span datatype="Quota"></span>
+                </div>
+                <div class="tools">
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                <div style="margin-bottom: 5px; padding: 15px; float:right; " class="col-md-0">
+                    <a class="btn btn-default " data-toggle="export" href="#" id="btnDown">下载数据</a>
+                </div>
+                <div style="margin-bottom: 5px; padding: 15px; float:right; " class="col-md-2">
+
+                    <select class="bs-select form-control" id="selTop" name="selTop" data-size="6">
+                        <option value="10">查看前10</option>
+                        <option value="20">查看前20</option>
+                        <option value="30">查看前30</option>
+                        <option value="9999">查看全部</option>
+                    </select>
+
+
+                </div>
+                <!--<div style="width:1050px !important; overflow-x:auto; height:300px; overflow-y:auto ;margin:0 auto;">-->
+                <div style="width:100%;overflow-x:auto; height:300px; overflow-y:auto ;margin:0 auto;">
+                    <table class=" table table-striped table-bordered table-hover" style="table-layout: fixed;" id="sample_byday">
+                        <thead>
+                            <!--<tr>
+                                <th>
+                                    时间段
+                                </th>
+
+                                <th>
+                                    PV
+                                </th>
+                                <th>
+                                    UV
+                                </th>
+                                <th>
+                                    人均停留时间
+                                </th>
+                                <th>
+                                    二跳数
+                                </th>
+                            </tr>-->
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- End 表格 -->
+    </div>
+</div>

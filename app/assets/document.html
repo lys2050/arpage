@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AutoSDL V1.3 报表开发框架</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="assets/global/plugins/bootstrap_LTE/dist/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="assets/global/plugins/bootstrap_LTE/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
+    <link href="assets/global/plugins/bootstrap_LTE/doc/style.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--插件 -->
+    <!-- jQuery 2.1.4 -->
+    <script src="assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <link href="assets/global/plugins/table/jquerytable.css" rel="stylesheet" />
+    <link href="assets/global/plugins/select2/select2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <!--弹层-->
+    <link href="assets/global/plugins/dialog/css/dialog.css" rel="stylesheet" type="text/css" />
+    <!--表单验证css-->
+    <link rel="stylesheet" href="assets/global/plugins/validator/bootstrapValidator.css">
+    <link rel="stylesheet" href="assets/global/plugins/validator/bootstrap-multiselect.css">
+    <script src="assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/global/plugins/table/jquerytable.js"></script>
+    <script src="assets/global/plugins/Chart/highcharts.js"></script>
+    <script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!--表单验证js-->
+    <script type="text/javascript" src="assets/global/plugins/validator/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="assets/global/plugins/validator/bootstrapValidator.js"></script>
+    <script src="assets/local/script/sdlbase.js"></script>
+    <script src="assets/local/script/sdltool.js"></script>
+    <script src="assets/local/script/sdlpagebase.js"></script>
+    <script src="assets/local/script/sdldatepicker.js"></script>
+    <script src="assets/global/plugins/echart/echarts-all.js"></script>
+    <link href="assets/local/css/document.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue fixed" data-spy="scroll" data-target="#scrollspy">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <!-- Logo -->
+            <a href="../document.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>S</b>DL V1.3</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Auto</b>SDL V1.3</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">切换导航</span>
+                </a>
+
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <div class="sidebar" id="scrollspy">
+
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="nav sidebar-menu">
+                    <li class="header">TABLE OF CONTENTS</li>
+                    <li class="active"><a href="#usedesc"><i class='fa fa-circle-o'></i>开发指南</a></li>
+                    <li><a href="#introduction"><i class='fa fa-circle-o'></i>介绍</a></li>
+                    <li><a href="#dependencies"><i class='fa fa-circle-o'></i>依赖</a></li>
+                    <li><a href="#advice"><i class='fa fa-circle-o'></i>服务端约定</a></li>
+                    <li><a href="#layout"><i class='fa fa-circle-o'></i>页面脚本</a></li>
+                    <li class='treeview' id='form-components'>
+                        <a href="javascript::;"><i class='fa fa-circle-o'></i>表单元素</a>
+                        <ul class='nav treeview-menu'>
+                            <li><a href='#component-select'>下拉框</a></li>
+                            <li><a href='#component-date'>日历</a></li>
+                            <li><a href='#component-tab'>选项卡</a></li>
+                            <li><a href='#component-validator'>表单验证</a></li>
+                            <li><a href='#component-radio'>单选框</a></li>
+                        </ul>
+                    </li>
+                    <li class='treeview' id='scrollspy-components'>
+                        <a href="javascript::;"><i class='fa fa-circle-o'></i>表格</a>
+                        <ul class='nav treeview-menu'>
+                            <li><a href='#component-client-table'>客户端分页表格</a></li>
+                            <li><a href='#component-server-table'>服务端分页表格</a></li>
+                        </ul>
+                    </li>
+                    <li class='treeview' id='chart-components'>
+                        <a href="javascript::;"><i class='fa fa-circle-o'></i>Chart</a>
+                        <ul class='nav treeview-menu'>
+                            <li><a href='#component-spline'>折线图</a></li>
+                            <li><a href='#component-line'>简单折线图</a></li>
+                            <li><a href='#component-bar'>柱状图</a></li>
+                            <li><a href='#component-stacked'>堆积柱状图</a></li>
+                            <li><a href='#component-pie'>饼图</a></li>
+                            <li><a href='#component-radar'>雷达图</a></li>
+                            <li><a href='#component-scatter'>散点图</a></li>
+                            <li><a href='#component-funnel'>漏斗图</a></li>
+                            <li><a href='#component-map'>地图</a></li>
+
+                            <!--<li><a href='#component-sidebar'>堆积图</a></li>
+                            <li><a href='#component-control-sidebar'>饼图</a></li>-->
+                        </ul>
+                    </li>
+                    <li class='treeview' id='show-components'>
+                        <a href="javascript::;"><i class='fa fa-circle-o'></i>展示控件</a>
+                        <ul class='nav treeview-menu'>
+                            <li><a href='#component-textblock'>突出文字块</a></li>
+                        </ul>
+                    </li>
+                    <li class='treeview' id='other-components'>
+                        <a href="javascript::;"><i class='fa fa-circle-o'></i>其他</a>
+                        <ul class='nav treeview-menu'>
+                            <li><a href='#component-alert'>弹出层</a></li>
+                            <li><a href='#component-export'>导出</a></li>
+                            <li><a href='#component-export-head'>导出-复杂表头</a></li>
+                            <!--<li><a href='#component-sidebar'>堆积图</a></li>
+                            <li><a href='#component-control-sidebar'>饼图</a></li>
+                            <li><a href='#component-info-box'>对比图</a></li>-->
+                        </ul>
+                    </li>
+                    <li class='treeview' id='Li3'>
+                        <a href="javascript::;"><i class='fa fa-circle-o'></i>页面模版</a>
+                        <ul class='nav treeview-menu'>
+                            <li><a href='autoSDL/table.html'>表格页面</a></li>
+                            <li><a href='autoSDL/char.html'>折线图页面</a></li>
+                            <li><a href='autoSDL/chartable.html'>表格和折线图页面</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#plugins"><i class='fa fa-circle-o'></i>在线报表生成</a></li>
+                </ul>
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <div class="content body">
+                <section id="usedesc">
+                    <h2 class='page-header'><a href="#usedesc">开发指南</a></h2>
+                    <p class='lead'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报表框架集成在数据门户中,开发新报表会增加到数据门户中。
+                        页面目录以及权限控制向数据门户管理员申请，数据层目前采用存储过程获取数据。请阅读后续关于报表框架
+                        的介绍后，按以下约束、步骤在数据门户下进行报表开发
+                    </p>
+                    <ul>
+                        <li>1、只在开发页面中编写代码,框架功能不满足时,向管理员申请,不可其他改动代码</li>
+                        <li>2、在确认页面交互逻辑后，编写存储过程</li>
+                        <li>3、在本地测试环境测试</li>
+                        <li>4、本地测试环境通过后再线上测试环境测试</li>
+                        <li>5、向数据门户管理员申请上线</li>
+                    </ul>
+
+                </section>
+                <section id='introduction'>
+                    <h2 class='page-header'><a href="#introduction">介绍</a></h2>
+                    <p class='lead'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AutoSDL</b>(报表开发框架-前端)封装了查询、控件初始化、导出等报表页面基础功能,
+                        定义了页面的脚本编写规范。对常用控件例如下拉框、选项卡、表格、Chart进行了二次封装,
+                        提供统一的控件使用API,使报表开发工作变的简单、高效。报表框架采用面向对象的代码设计，框架有很好的可维护性、可扩展性。
+                    </p>
+                </section>
+
+                <section id='dependencies'>
+                    <h2 class='page-header'><a href="#plugins">依赖</a></h2>
+                    <p class="lead">AutoSDL依赖以下插件:</p>
+                    <div class='row bring-up'>
+                        <div class='col-sm-3'>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4>基础</h4>
+                                </li>
+                                <li><a href="http://getbootstrap.com" target="_blank">Bootstrap 3</a></li>
+                                <li><a href="http://jquery.com/" target="_blank">jQuery 1.11+</a></li>
+                            </ul>
+                        </div>
+                        <div class='col-sm-3'>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4>图表</h4>
+                                </li>
+                                <li><a href='http://www.hcharts.cn/' target="_blank">Hightchart</a></li>
+                                <li><a href='http://echarts.baidu.com/index.html' target="_blank">Echarts</a></li>
+                                <li><a href='http://www.datatables.net/' target="_blank">jQuery-DataTable</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.col -->
+                        <div class='col-sm-3'>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4>表单元素</h4>
+                                </li>
+                                <li><a href='http://select2.github.io/' target="_blank">Select2</a></li>
+                                <li><a href='http://www.daterangepicker.com/' target="_blank">Date Range Picker</a></li>
+                                <li><a href='http://fronteed.com/iCheck/' target="_blank">iCheck</a></li>
+                                <!--<li><a href='http://github.com/RobinHerbots/jquery.inputmask' target="_blank">Input Mask</a></li>-->
+                                <li><a href='http://www.jqcool.net/jquery-bootstrapvalidator.html' target="_blank">bootstrapValidator</a>
+                            </ul>
+                        </div>
+                        <!-- /.col -->
+
+                        <!-- /. col -->
+                        <div class='col-sm-3'>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4>其他</h4>
+                                </li>
+                                <li><a href='https://momentjs.com' target="_blank">moment</a></li>
+                                <li><a href='http://aui.github.io/artTemplate/' target="_blank">artTemplate</a></li>
+                                <li><a href='http://www.johnculviner.com' target="_blank">jQuery fileDownload</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+
+                <section id='advice'>
+                    <h2 class='page-header'><a href="#advice">服务端约定</a></h2>
+                    <p class='lead'>
+                        报表框架规约了服务端与客户端的通讯模式(JSON),请求和返回如下所示:
+                    </p>
+                    <p>请求:</p>
+                    <pre class='prettyprint'><code class='html'>
+[
+    {
+        "Name": "Dealer_Rpt_Led_Prod_Stats",//存储过程名称
+        "Parameters": [
+            {
+                "Name": "sdate",//参数名称
+                "Value": "20150729",//参数名称
+                "DataType": "1"//参数类型
+            },
+            {
+                "Name": "edate",
+                "Value": "20150804",
+                "DataType": "1"
+            },
+            {
+                "Name": "datetype",
+                "Value": "1",
+                "DataType": "1"
+            },
+            {
+                "Name": "producttype",
+                "Value": "01",
+                "DataType": "1"
+            }
+        ]
+    }
+]  </code></pre>
+                    <p>返回:</p>
+                    <pre class='prettyprint'><code class='html'>
+{
+    "Status": "Success",//状态
+    "Data": [
+        {
+            "Name": "DP_Dealer",//数据库key
+            "DataSets": [
+                {
+                    "Name": "Dealer_Rpt_Led_Prod_Stats",//存储过程名称
+                    "Tables": [
+                        {
+                            //列名
+                            "Columns": [
+                                "dim_date",
+                                "pri_net_ord_num",
+                                "pub_net_ord_num",
+                                "pc_net_ord_num",
+                                "m_net_ord_num",
+                                "p_app_net_ord_num",
+                                "m_app_net_ord_num",
+                                "call_ord_num",
+                                "mo_call_ord_num",
+                                "pc_call_ord_num",
+                                "cc_ord_num",
+                                "mo_cc_ord_num",
+                                "pc_cc_ord_num"
+                            ],
+                            //列对应数据行
+                            "Rows": [
+                                [
+                                    "20150729",
+                                    "121729",
+                                    "17930",
+                                    "38144",
+                                    "44643",
+                                    "19538",
+                                    "35905",
+                                    "73374",
+                                    "35454",
+                                    "37920",
+                                    "373",
+                                    "0",
+                                    "373"
+                                ],
+                               
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Msg": "操作成功！",
+    "Type": "Json"
+}  </code></pre>
+                    <p>
+                        <b>Note:</b> 在服务端开发中请注意以下几点.
+                    </p>
+                    <ul>
+                        <li>存储过程参数名称是页面中控件ID</li>
+                        <li>在页面中可自定义增加存储过程参数</li>
+                        <li>有些查询参数例如时间,存储过程参数是固定的,在控件使用中有说明</li>
+                        <li>存储过程的参数数据类型Int = 1,String = 2,DateTime = 3,与存储过程定义类型需一致</li>
+                    </ul>
+
+                </section>
+
+                <section id='layout'>
+                    <h2 class='page-header'><a href="#layout">页面脚本</a></h2>
+                    <p class='lead'>页面脚本重点说明:</p>
+                    <ul>
+                        <li>页面脚本继承sdlpagebase(页面基础功能)的功能</li>
+                        <li>调用new simplepage()时,simplepage的init()通过构造函数自动调用</li>
+                        <li>所有的数据请求,都会调用页面的postcallback()函数</li>
+                        <li>sdlpagebase提供数据请求接口,可自定义参数进行数据请求</li>
+                        <li>通过this可访问sdlpagebase提供给外界的接口</li>
+                    </ul>
+                    <p>代码说明:</p>
+                    <pre class='prettyprint'><code class='html'>
+        var simplepage = sdlpagebase.Page.extend({
+            init: function (opt) {
+                var that = this;
+                //pagebase 初始化
+                that._super(opt);
+                //绑定自定义事件
+                that.pageEvent();
+            },
+            //请求数据,回调函数
+            //status:请求状态 
+            //rst:返回数据
+            postcallback: function (status, rst) {
+                var that=this;
+                this.tableBind(rst);
+                this.chartBind(rst);
+            },
+            //页面事件绑定
+            pageEvent: function () {
+                var that = this;
+                //自定义内容
+                var opt = {
+                    //proc:存储过程名称,自定义参数
+                    postdata: [{ Name: "GetNormalData", "Parameters": [{ Name: "parm1", Value: "parmvalue", DataType: 1 }] },
+                               { Name: "GetNormalData1", "Parameters": [{ Name: "parm11", Value: "parmvalue1", DataType: 2 }] }]
+                }
+                //自定义查询,查询完成调用postcallback
+                $("#self").click(function () {
+                    that.getdata(opt);
+                })
+            },
+            //表格
+            tableBind: function (ds) {
+                //table
+                var tbinstance = new sdltool.simpletable({
+                    renderto: "tbcontainer",
+                    data: ds,
+                    preth: "&LT;tr>&LT;th colspan='2'>日期&LT;/th>&LT;th colspan='3'>详细&LT;/th>&LT;/tr>",
+                    //error
+                    coloums: [
+                        { title: "日期", datatp: "date" },
+                        { title: "PV" },
+                        { title: "UV" },
+                        { title: "人均停留时长" },
+                        { title: "PV/UV", datatp: { key: "percent", reserve: 2 } }],
+                });
+                //table render
+                tbinstance.render();
+            },
+            //chart
+            chartBind: function (ds) {
+                //chart
+                var chart = new sdltool.chart_spline({
+                    renderto: "ctcontainer",
+                    data: ds,
+                    namecol: "date",
+                    groupcol: [
+                            { title: "PV", val: "pv" },
+                            { title: "UV", val: "uv" },
+                            { title: "人均停留时长", val: "avgp" },
+                            { title: "PV/UV", val: "avgpu", datatp: { reserve: 2 } }]
+                });
+                //chart render
+                chart.render();
+            }
+        })
+
+        // 调用init初始化,初始化查询
+        new simplepage({
+            //proc:存储过程名称
+            postdata:
+                [{
+                    //存储过程名称
+                    Name: "GetNormalData",
+                }]
+        });  </code></pre>
+                    <!-- /.box -->
+                </section>
+
+                <section class='components' data-spy="scroll" data-target="#form-components">
+                    <h2 class='page-header'><a href="#form-components">表单元素</a></h2>
+                    <h3 id='component-select'>下拉框</h3>
+                    <p class='lead'>
+                        通过为select增加自定义属性,在pagebase中处理下拉框的相关操作
+                    </p>
+                    <p class='lead'>下拉框属性说明:</p>
+                    <ul>
+                        <li><code>data-type="local"</code>下拉框的数据源[local:本地html,factory:厂商,city:城市]</li>
+                        <li><code>data-add-all</code>是否增加全部选项</li>
+                        <li><code>query-type="1"</code>数据类型</li>
+                        <li><code>data-default="-1"</code>默认值</li>
+                        <li><code>data-for="Select2"</code>联动目标控件</li>
+                        <li><code>data-target="select"</code>控件类型</li>
+                        <li><code>data-ref='{"inx":"1","ids":"Select2"}'</code>数据获取时,需要的其他控件值[inx:优先级,ids:控件id]</li>
+                        <li><code>multiple="multiple" class="js-example-basic-multiple"</code>多选</li>
+                        <li><code>class="js-example-basic-single"</code>单选</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">Select Example</span><br />
+                            <select id="Select1"
+                                data-type="local"
+                                query-type="1"
+                                data-target="select"
+                                class="js-example-basic-single">
+                                <option value="AL">马自达</option>
+                                <option value="WY">丰田</option>
+                                <option value="WY">奔驰</option>
+                            </select>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                        &LT;select id="Select2"
+                                data-type="local"
+                                query-type="1"
+                                data-target="select"
+                                class="js-example-basic-single">
+                                &LT;option value="AL">马自达</option>
+                                &LT;option value="WY">丰田</option>
+                                &LT;option value="WY">奔驰</option>
+                        &LT;/select></pre>
+                    <div class="callout callout-info lead">
+                        <h4>提示!</h4>
+                        <p>当使用非<code>data-type="local"</code>数据源时,请确保框架支持新增类型的数据源</p>
+                    </div>
+
+                    <!-- ===================================================================== -->
+                    <h3 id='component-date'>日历</h3>
+                    <p class='lead'>
+                        通过为div增加自定义属性,在pagebase中处理日历的相关操作
+                    </p>
+                    <p class='lead'>日历控件属性说明:</p>
+                    <ul>
+                        <li><code>data-target="calendar"</code>控件类型为日历</li>
+                        <li><code>calendar-mode="day"</code>日选择模式</li>
+                        <li><code>calendar-mode="month"</code>月选择模式</li>
+                        <li><code>calendar-mode="quarter"</code>季度选择模式</li>
+                        <li><code>calendar-mode="halfYear"</code>半年选择模式</li>
+                        <li><code>calendar-mode="year"</code>年选择模式</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">date range picker Example</span>
+                            <div class="btn btn-default" id="reportrange">
+                                <i class="fa fa-calendar"></i>
+                                &nbsp; <span></span>
+                                <b class="fa fa-angle-down"></b>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &LT;div class="btn btn-default"
+                        data-target="calendar" 
+                        calendar-mode="day">
+                        &LT;i class="fa fa-calendar">&LT;/i>
+                        &nbsp; &LT;span>&LT;/span>
+                        &LT;b class="fa fa-angle-down">&LT;/b>
+                    &LT;/div>
+                    </pre>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">month range picker Example</span>
+                            <div class="btn btn-default" id="monthRange">
+                                <i class="fa fa-calendar"></i>
+                                &nbsp; <span></span>
+                                <b class="fa fa-angle-down"></b>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &LT;div class="btn btn-default"
+                        data-target="calendar" 
+                        calendar-mode="month">
+                        &LT;i class="fa fa-calendar">&LT;/i>
+                        &nbsp; &LT;span>&LT;/span>
+                        &LT;b class="fa fa-angle-down">&LT;/b>
+                    &LT;/div>
+                    </pre>
+
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">quarter range picker Example</span>
+                            <div class="btn btn-default" id="quarterRange">
+                                <i class="fa fa-calendar"></i>
+                                &nbsp; <span></span>
+                                <b class="fa fa-angle-down"></b>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &LT;div class="btn btn-default"
+                        data-target="calendar" 
+                        calendar-mode="quar">
+                        &LT;i class="fa fa-calendar">&LT;/i>
+                        &nbsp; &LT;span>&LT;/span>
+                        &LT;b class="fa fa-angle-down">&LT;/b>
+                    &LT;/div>
+                    </pre>
+
+
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">halfyear range picker Example</span>
+                            <div class="btn btn-default" id="halfRange">
+                                <i class="fa fa-calendar"></i>
+                                &nbsp; <span></span>
+                                <b class="fa fa-angle-down"></b>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &LT;div class="btn btn-default"
+                        data-target="calendar" 
+                        calendar-mode="halfYear">
+                        &LT;i class="fa fa-calendar">&LT;/i>
+                        &nbsp; &LT;span>&LT;/span>
+                        &LT;b class="fa fa-angle-down">&LT;/b>
+                    &LT;/div>
+                    </pre>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">year range picker Example</span>
+                            <div class="btn btn-default" id="yearRange">
+                                <i class="fa fa-calendar"></i>
+                                &nbsp; <span></span>
+                                <b class="fa fa-angle-down"></b>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &LT;div class="btn btn-default"
+                        data-target="calendar" 
+                        calendar-mode="year">
+                        &LT;i class="fa fa-calendar">&LT;/i>
+                        &nbsp; &LT;span>&LT;/span>
+                        &LT;b class="fa fa-angle-down">&LT;/b>
+                    &LT;/div>
+                    </pre>
+                    <!-- ===================================================================== -->
+                    <h3 id='component-tab'>选项卡</h3>
+                    <p class='lead'>
+                        通过为ul增加自定义属性,在pagebase中处理li的相关操作
+                    </p>
+                    <p class='lead'>日历控件属性说明:</p>
+                    <ul>
+                        <li><code>data-target="sampletab"</code>控件类型为选项卡</li>
+                        <li><code>data-value="1"</code>选项值</li>
+                        <li><code>id="datetype"</code>唯一标识,同时为存储过程参数名称</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <label class="control-label">日期类型：</label>
+                        <div class="control-label">
+                            <ul class="nav nav-pills" id="datetype" data-target="sampletab">
+                                <li class="active">
+                                    <a data-value="1" href="JavaScript:void(0)">按天</a>
+                                </li>
+                                <li>
+                                    <a data-value="3" href="JavaScript:void(0)">按月</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &LT;div class="col-md-2 control-label">
+                            &LT;ul class="nav nav-pills" id="Ul1" data-target="sampletab">
+                                &LT;li class="active">
+                                    &LT;a data-value="1" href="#" ">按天&LT;/a>
+                                &LT;/li>
+                                &LT;li>
+                                    &LT;a data-value="3" href="#">按月&LT;/a>
+                                &LT;/li>
+                            &LT;/ul>
+                        &LT;/div></pre>
+
+
+
+
+
+                    <h3 id='component-validator'>表单验证</h3>
+                    <p class='lead'>
+                        通过为表单元素增加自定义属性,在sdltool中处理表单验证的相关操作
+                    </p>
+                    <p class='lead'>表单验证控件属性说明:</p>
+                    <ul>
+                        <li><code>data-validator</code>验证类型及拓展内容</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <form id="defaultForm" method="post" class="form-horizontal bv-form" action="#" novalidate="novalidate">
+                            <div class="form-group has-feedback">
+                                <label class="col-lg-2 control-label">Decimal</label>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" data-validator='{"valikey":"decimal","digit":2,"number":2,"required":true}'>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="col-lg-2 control-label">Gender</label>
+                                <div class="col-lg-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="gender" value="male" data-validator='{"valikey":"radio","required":false}'>
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="gender" value="female">
+                                            Female
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="gender" value="other">
+                                            Other
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="col-lg-2 control-label">GenderT</label>
+                                <div class="col-lg-3">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="aa" value="males" data-validator='{"valikey":"radioTwo","required":true}'>
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="aa" value="females">
+                                            Female
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="aa" value="others">
+                                            Other
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <label class="col-lg-2 control-label">Programming</label>
+                                <div class="col-lg-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="programs" value="net" data-validator='{"valikey":"checkbox","required":true}'>
+                                            .Net
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="programs" value="java">
+                                            Java
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="programs" value="c">
+                                            C/C++
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="programs" value="php">
+                                            PHP
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="programs" value="perl">
+                                            Perl
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="programs" value="ruby">
+                                            Ruby
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Browser</label>
+                                <div class="col-lg-3">
+                                    <select class="form-control" data-validator='{"valikey":"select","required":true}' multiple>
+                                        <option value="chrome">Google Chrome</option>
+                                        <option value="firefox">Firefox</option>
+                                        <option value="ie">IE</option>
+                                        <option value="safari">Safari</option>
+                                        <option value="opera">Opera</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-3 col-lg-offset-2">
+                                    <button type="button" class="btn btn-info" id="validateBtn">提交</button>
+                                    <button type="button" class="btn btn-info" id="resetBtn">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <pre class='prettyprint'>
+                        &lt;form action="" method="post" id="defaultForm">
+                             //需要验证的表单元素                               
+                             &lt;button type="button" class="btn btn-info" id="Button1">提交&lt;/button>
+                             &lt;button type="button" class="btn btn-info" id="Button2">重置&lt;/button>   
+                        &lt;/form>
+                         var validate = sdltool.verify.extend({
+                            init: function (opt) {
+                                var that = this;
+                                that._super(opt);
+                            },
+                            //扩展验证
+                            radioTwo: function (select) {
+                                var that = this;
+                                var result = that.radio(select);
+                                return result;
+                            }
+                        });
+                        //validate参数为form、提交按钮以及重置按钮的id
+                        var verify = new validate({
+                            form: 'defaultForm',
+                            submit: 'validateBtn',
+                            reset: 'resetBtn'
+                        });
+                        verify.validate();
+                    </pre>
+
+                    <h3 id='component-radio'>单选框</h3>
+
+                    <p class='lead'>单选框控件属性说明:</p>
+                    <ul>
+                        <li><code>id</code>单选框容器id</li>
+                        <li><code>datadefault</code>默认选项</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 text-right">选择终端:</label>
+                                <div class="control-label col-md-6">
+                                    <div class="nav nav-pills" id="radio" data-default="PC">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" value="all" />全部
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" value="PC" />
+                                            PC
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" value="M" />
+                                            M
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint' style="clear: both;">                       
+                        &lt; div class="nav nav-pills" id="radio"  data-default="PC">                                      
+                            &lt; label class="radio-inline">
+                                &lt; input type="radio" name="inlineRadioOptions" value="all" />全部
+                            &lt; /label>
+                            &lt; label class="radio-inline">
+                                &lt; input type="radio" name="inlineRadioOptions" value="PC" /> PC
+                            &lt; /label>
+                            &lt; label class="radio-inline">
+                                &lt; input type="radio" name="inlineRadioOptions" value="M" /> M
+                            &lt; /label>
+                        &lt; /div>
+                         var radio = new sdltool.radio_sample({
+                            id: 'radio',
+                            datadefault:'PC',
+                        });
+                        radio.bingChange(function (opt) {
+                            console.log({ 'id': opt.id, 'val': opt.val });
+                        });
+                    </pre>
+                </section>
+
+                <section class='components' data-spy="scroll" data-target="#scrollspy-components">
+                    <h2 class='page-header'><a href="#scrollspy-components">表格</a></h2>
+                    <h3 id='component-client-table'>表格-客户端分页</h3>
+                    <p class='lead'>
+                        通过为simpletable构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>data</code>数据源(直接使用返回数据即可)</li>
+                        <li><code>dataKey</code>返回数据存储过程名称</li>
+                        <li><code>coloums</code>数据列配置</li>
+                        <li><code>datatp:"date"</code>时间类型</li>
+                        <li><code>datatp:"percent"</code>百分比类型</li>
+                        <li><code>datatp: { key: "percent", reserve: 2 }</code>百分比类型指定小数位</li>
+                        <li><code>datatp: { reserve: 2 }</code>保留几位小数</li>
+                        <li><code>datatp:fucntion(val){}</code>自定义格式化函数</li>
+                        <li><code>preth:""</code>复杂表头preth中的html内容添加到现有表格表头之前</li>
+                    </ul>
+                    <div class="callout callout-info lead">
+                        <h4>注意!</h4>
+                        <p>在coloums配置中,如果未配置<code>data:"列名"</code>则会使用未格式为key、value的数组数据,按照顺序渲染表格</p>
+                        <p>如果需要指定顺序则配置<code>data:"列名"</code>,表格会将数据转换并按key渲染表格</p>
+                    </div>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="tbcontainer"></div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+               //table 容器
+               &LT;div id="tbcontainer">&LT;/div>
+               //table 实例
+               var tbinstance = new sdltool.simpletable({
+                    renderto: "tbcontainer",//容器
+                    dataKey: "Dealer_Clue_Get400",//存储过程名
+                    data: ds,//数据
+                    coloums: [
+                        { title: "日期", datatp: "date" }, //数据类型
+                        { title: "PV" },
+                        { title: "UV" },
+                        { title: "PV/UV", datatp: { key: "percent", reserve: 2 } }],//百分百保留2位小数
+                });
+                //table render
+                tbinstance.render();
+                    </pre>
+                    <!-- ===================================================================== -->
+
+                    <h3 id='component-server-table'>表格-服务端分页</h3>
+                    <p class='lead'>参数说明:</p>
+                    <ul>
+                        <li><code>postparm:that.getQuery(parm)</code>服务端分页需要指定存储过程,
+                            getQuery将指定的存储过程与页面查询参数合并</li>
+                        <li>传递到存储过程参数<code>pageindex</code>页索引</li>
+                        <li>传递到存储过程参数<code>pagesize</code>页数</li>
+                    </ul>
+                    <div class="callout callout-info lead">
+                        <h4>注意!</h4>
+                        <p>列格式化参数与客户端分页表格相同,存储过程返回数据最后一列为数据总行数</p>
+                    </div>
+                    <div class="box box-solid">
+                    </div>
+                    <pre class='prettyprint'>
+                    //定义表格对应存储过程以及自定义参数
+                    var parm = {
+                    postdata:
+                        [{
+                            Name: "GetNormalData",
+                            "Parameters": [{ Name: "parm1", Value: "parmvalue", DataType: 1 }]
+                        }]
+                    };               
+                    var tbinstance = new sdltool.Pagingtable({
+                    renderto: "tbcontainer",
+                    postparm: that.getQuery(parm),
+                    coloums: [
+                        { title: "日期", datatp: "date" },
+                        { title: "PV" },
+                        { title: "UV" },
+                        { title: "PV%UV", datatp: { reserve: 2 } }],
+                    });
+                    //table render
+                    tbinstance.render();</pre>
+                </section>
+
+                <section class='components' data-spy="scroll" data-target="#chart-components">
+                    <h2 class='page-header'><a href="#chart-components">Chart</a></h2>
+                    <h3 id='component-spline'>折线图</h3>
+                    <p class='lead'>
+                        通过为sdltool.chart_spline构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>namecol</code>x轴数据列</li>
+                        <li><code>groupcol</code>数组设置相对于x轴的多个y轴的参数</li>
+                        <li><code>title</code>显示名称</li>
+                        <li><code>val</code>对应数据列</li>
+                    </ul>
+                    <div class="callout callout-info lead">
+                        <h4>注意!</h4>
+                        <p>列格式化参数与客户端分页表格相同</p>
+                        <p>数据需要格式化为key、value格式,示例：<code>sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400")</code></p>
+                    </div>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="ctcontainer" class="tab-div">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+               //chart 容器
+               &LT;div id="cbcontainer">&LT;/div>
+               //chart 实例
+                var chart = new sdltool.chart_spline({
+                renderto: "ctcontainer",
+                data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                namecol: "dim_day_id",
+                groupcol: [
+                        { title: "PV", val: "call_ord_num" },
+                        { title: "UV", val: "call_ord_rd_num" },
+                        { title: "PV/UV", val: "avgpu", datatp: { reserve: 2 } }
+                ]
+            });
+            //chart render
+            chart.render();
+                    </pre>
+
+
+                    <h3 id='component-line'>简单折线图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_spline构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>namecol</code>x轴数据列</li>
+                        <li><code>groupcol</code>数组设置相对于x轴的多个y轴的参数</li>
+                        <li><code>title</code>显示名称</li>
+                        <li><code>val</code>对应数据列</li>
+                        <li><code>datatp</code>扩展属性，包括y轴单位、x轴单位、小数位的保留等</li>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="line" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                        var chart = new sdltool.echarts_spline({
+                            container: "#line",
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                            namecol: "dim_day_id",
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num",datatp:"date" },
+                                    { title: "UV", val: "call_ord_rd_num", datatp: "decimal" },
+                                    { title: "人均停留时长", val: "call_ord_ind_num", datatp: { key: "percent", reserve: "3",unit:"cm" } }
+                            ],
+                            title: '折线图标题',
+                            height:'450px'
+                        });
+                        chart.render();
+                    </pre>
+                    <h3 id='component-bar'>柱状图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_bar构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>namecol</code>x轴数据列</li>
+                        <li><code>groupcol</code>数组设置相对于x轴的多个y轴的参数</li>
+                        <li><code>title</code>显示名称</li>
+                        <li><code>val</code>对应数据列</li>
+                        <li><code>datatp</code>扩展属性，包括y轴单位、x轴单位、小数位的保留等</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="bar" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                        var chartbar = new sdltool.echarts_bar({
+                            container: "#bar",
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                            namecol: "dim_day_id",
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num", datatp: { key: "decimal", reserve: "3",yUnit:"%" } },
+                                    { title: "UV", val: "call_ord_rd_num" ,datatp: { key: "percent", reserve: "3" } },
+                                    { title: "人均停留时长", val: "call_ord_ind_num" ,datatp: { key: "decimal"} }
+                            ],
+                            title:'柱状图标题',
+                        });
+                        chartbar.render();
+                    </pre>
+
+                    <h3 id='component-stacked'>堆积柱状图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_stacked构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>namecol</code>x轴数据列</li>
+                        <li><code>groupcol</code>数组设置相对于x轴的多个y轴的参数</li>
+                        <li><code>title</code>显示名称</li>
+                        <li><code>val</code>对应数据列</li>
+                        <li><code>datatp</code>扩展属性，包括y轴单位、x轴单位、小数位的保留等</li>
+                        <li><code>stack</code>sdltool.echarts_stacked类根据stack给数值分类，相同的类会以柱子的形式叠加在一起</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="stacked" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                        var stacked =new sdltool.echarts_stacked({
+                            container: "#stacked",
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                            namecol: "dim_day_id",
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num" ,datatp:{stack: '搜索引擎'}},
+                                    { title: "UV", val: "call_ord_rd_num", datatp: { key: "percent", reserve: "3", yUnit: "%", markLine: true } },
+                                    { title: "人均停留时长", val: "call_ord_ind_num", datatp:{stack: '搜索引擎'} }
+                            ],
+                            title: '堆积柱状图标题',
+                        });
+                    </pre>
+                    <h3 id='component-pie'>饼图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_pie构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>groupcol</code>模块分类参数</li>
+                        <li><code>title</code>显示名称</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="pie" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                        var chartpie = new sdltool.echarts_pie({
+                            container: "#pie",
+                            title: '饼图标题',         
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num" },
+                                    { title: "UV", val: "call_ord_rd_num" },
+                                    { title: "人均停留时长", val: "call_ord_ind_num" }
+                            ],
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                        });
+                        chartpie.render();
+                    </pre>
+
+                    <h3 id='component-radar'>雷达图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_radar构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>groupcol</code>模块分类名称</li>
+                        <li><code>namecol</code>模块分类参数</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="radar" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                       var chartradar =new sdltool.echarts_radar({
+                            container: "#radar",
+                            title: '雷达图标题',
+                            namecol: "dim_day_id",
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num" },
+                                    { title: "UV", val: "call_ord_rd_num" },
+                                    { title: "人均停留时长", val: "call_ord_ind_num",datatp: { key: "percent", reserve: "3" }  }
+                            ],
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                        });
+                        chartradar.render(); 
+                    </pre>
+
+                    <h3 id='component-scatter'>散点图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_scatter构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>groupcol</code>数组设置相对于x轴的多个y轴的参数</li>
+                        <li><code>namecol</code>x轴数据列</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="scatter" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                       var echarts_scatter = new sdltool.echarts_scatter({
+                            container: "#scatter",
+                            title: '散点图标题',
+                            //namecol: "dim_day_id",
+                            groupcol: [
+                                    { title: "男生", val: "call_ord_num", datatp: { yUnit: 'cm', xUnit: 'kg',zUnit:'人' } },
+                                    { title: "女生", val: "call_ord_rd_num"}
+                            ],
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                        });
+                        echarts_scatter.render();
+                    </pre>
+
+                    <h3 id='component-funnel'>漏斗图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_funnel构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>groupcol</code>数组设置相对于各项的参数比例</li>
+                        <li><code>title</code>图表标题</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="funnel" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                      var funnel = new sdltool.echarts_funnel({
+                            container: "#funnel",
+                            title: '漏斗图标题',
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num" },
+                                    { title: "UV", val: "call_ord_rd_num" },
+                                    { title: "人均停留时长", val: "call_ord_ind_num"}
+                            ],
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                        });
+                        funnel.render();
+                    </pre>
+                    <h3 id='component-map'>地图</h3>
+                    <p class='lead'>
+                        通过为sdltool.echarts_map构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>container</code>图表容器</li>
+                        <li><code>data</code>数据</li>
+                        <li><code>groupcol</code>数组相设置相对于各地的多个参数</li>
+                        <li><code>title</code>图表标题</li>
+                        <li><code>namecol</code>地理位置</li>
+                        <li><code>width</code>画图容器宽度，默认100%，单位px</li>
+                        <li><code>height</code>画图容器高度，默认400px，单位px</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <div id="map" class="tab-div echart">
+                            </div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                      var map = new sdltool.echarts_map({
+                            container: "#map",
+                            title: '地图标题',
+                            namecol: "dim_day_id",
+                            groupcol: [
+                                    { title: "PV", val: "call_ord_num" },
+                                    { title: "UV", val: "call_ord_rd_num" },
+                                    { title: "人均停留时长", val: "call_ord_ind_num"}
+                            ],
+                            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+                        });
+                        map.render();
+                    </pre>
+                </section>
+
+                <section class='components' data-spy="scroll" data-target="#show-components">
+                    <h2 class='page-header'><a href="#show-components">展示控件</a></h2>
+                    <h3 id='component-textblock'>突出文字块</h3>
+                    <p class='lead'>
+                        通过为sdltool.textblock构造函数传递参数,调用render渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>renderto</code>控件展示容器</li>
+                        <li><code>data</code>要展示的数据</li>
+                        <li><code>dataKey</code>存储过程</li>
+                        <li><code>callback</code>点击‘详情’按钮时执行的回调函数</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">Text Block Example</span>
+                            <div id="textcontainer"></div>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                        &lt;div id="textcontainer">&lt;/div>
+                        var textinstance = new sdltool.textblock({
+                            renderto: "textcontainer",
+                            data: data,
+                            dataKey: "Dealer_Clue_Get400",
+                            callback: function (arg) {
+                                //要执行的语句
+                            }
+                        });
+                        textinstance.render();
+                    </pre>
+                </section>
+
+                <section class='components' data-spy="scroll" data-target="#other-components">
+                    <h2 class='page-header'><a href="#chart-components">其他</a></h2>
+                    <h3 id='component-alert'>弹出层</h3>
+                    <p class='lead'>
+                        通过为sdltool.simple_popLayer构造函数传递参数,调用open渲染页面
+                    </p>
+                    <p class='lead'>属性说明:</p>
+                    <ul>
+                        <li><code>title</code>弹出层标题</li>
+                        <li><code>content</code>直接添加弹层内容</li>
+                        <li><code>url</code>外部引入弹层内容</li>
+                        <li><code>container</code>弹层容器，默认为body</li>
+                        <li><code>hasMask</code>是否显示遮罩层</li>
+                    </ul>
+                    <div class="box box-solid">
+                        <div class="box-body" style="position: relative;">
+                            <span class="eg">layer Example</span>
+                            <div id="container">
+                            </div>
+                            <button class="popLayer btn btn-primary">弹出</button>
+                            <button class="closeLayer btn btn-default">关闭</button>
+                        </div>
+                    </div>
+                    <pre class='prettyprint'>
+                    &lt;div id="container">&lt;/div>
+                    &lt;button class="popLayer btn btn-primary">弹出&lt;/button>
+                    &lt;button class="closeLayer btn btn-default">关闭&lt;/button>
+                    var layer = new sdltool.simple_popLayer({
+                        title: "表格标题",
+                        url: 'modaltext.html',
+                        content: ['&lt;div class="dialog-cnt">',
+                                   '&lt;table class="table-p5">',
+                                       '&lt;tr>',
+                                            '&lt;td style="width:70px;">222</td>',
+                                            '&lt;td>2212</td>',
+                                        '&lt;/tr>',
+                                        '&lt;tr>',
+                                            '&lt;td>12</td>',
+                                            '&lt;td>2222222</td>',
+                                        '&lt;/tr>',
+                                        '&lt;tr>',
+                                            '&lt;td>22222</td>',
+                                            '&lt;td>44444444</td>',
+                                        '&lt;/tr>',
+                             '/&lt;table>',
+                         '&lt;/div>'].join(''),
+                        /*容器，不设置默认为body*/
+                        container: '#container',
+                        hasMask: false
+                    });
+                    $('button.popLayer').on('click', function () {
+                        layer.open();
+                    });
+                    $('button.closeLayer').click(function () {                
+                        layer.close();
+                    });
+                    </pre>
+
+
+                    <h3 id='component-export'>导出</h3>
+                    <p class='lead'>
+                        当页面存储<code>id="btnDown"</code>按钮时,则认为导出功能启用,页面脚本需要实现getExportConfig()
+                    </p>
+                    <p class='lead'>列格式化参数说明:</p>
+                    <ul>
+                        <li><code>fmtstr: "####"</code>数字</li>
+                        <li><code>fmtstr: "0.00"</code>保留2位小数</li>
+                    </ul>
+                    <div class="callout callout-info lead">
+                        <h4>注意!</h4>
+                        <p>存储过程返回结果与导出结果一致时,只需配置显示列名</p>
+                        <p>当需要使用列名时,使用<code>{ Name: "dim_date", DisplayName: "网上订单"}</code>格式配置列</p>
+                    </div>
+                    <pre class='prettyprint'>
+        //配置导出参数
+        getExportConfig: function () {
+            return {
+                proc: "Dealer_Clue_Get400",//存储过程名称
+                cols: [
+                    { title: "日期", fmtstr: "####" },//列
+                    { title: "400通话数量" },
+                    { title: "400通话(排重）" },
+                    { title: "400独立号码数量" },
+                    { title: "400通话PC" },
+                    { title: "400通话PC（排重）" },
+                    { title: "400独立号码PC" },
+                    { title: "400通话移动" },
+                    { title: "400通话移动（排重）" },
+                    { title: "400独立号码移动" },
+                    { title: "400白名单外来电数" },
+                    { title: "400平均等待时长（秒）" },
+                    { title: "白名单外抢单量" },
+                    { title: "白名单外抢单排重量" },
+                    { title: "成功接听400量PC" },
+                    { title: "成功接听400量移动" },
+                    { title: "有效400来电量PC" },
+                    { title: "有效400来电量移动" },
+                ]
+            }
+        },
+                    </pre>
+                    <h3 id='component-export-head'>导出复杂表头</h3>
+                    <p class='lead'>
+                        复杂表头导出是将cols的配置认为是第一行,需要多行时使用fillrow填充多行内容,在通过merges设置合并规则
+                    </p>
+                    <p class='lead'>参数说明:</p>
+                    <ul>
+                        <li>合并参数<code>SR: "0"</code>开始行索引</li>
+                        <li>合并参数<code>SC: "0"</code>开始列索引</li>
+                        <li>合并参数<code>RN: "0"</code>合并行个数</li>
+                        <li>合并参数<code>CN: "0"</code>合并列个数</li>
+                        <li>填充数据行<code>fillrow: ["日期", "私有订单", "公有订单", "PC", "M"]</code></li>
+                    </ul>
+                    <div class="callout callout-info lead">
+                        <h4>注意!</h4>
+                        <p>列的格式化仍在cols配置中与多表头合并互不影响</p>
+                    </div>
+                    <pre class='prettyprint'>
+            //配置导出参数
+            getExportConfig: function () {
+            var cols =
+            [
+                { Name: "dim_date", DisplayName: "网上订单", fmtstr: "####" },
+                { Name: "pri_net_ord_num", DisplayName: "" },
+                { Name: "pub_net_ord_num", DisplayName: "" },
+                { Name: "pc_net_ord_num", DisplayName: "" },
+                { Name: "m_net_ord_num", DisplayName: "" },
+                { Name: "p_app_net_ord_num", DisplayName: "" },
+                { Name: "m_app_net_ord_num", DisplayName: "" },
+                { Name: "call_ord_num", DisplayName: "400电话" },
+                { Name: "mo_call_ord_num", DisplayName: "" },
+                { Name: "pc_call_ord_num", DisplayName: "" },
+                { Name: "cc_ord_num", DisplayName: "呼叫中心" },
+                { Name: "mo_cc_ord_num", DisplayName: "" },
+                { Name: "pc_cc_ord_num", DisplayName: "" },
+            ];
+            //定义合并规则
+            var merges = [
+                { SR: 1, SC: 0, RN: 1, CN: 7 },
+                { SR: 1, SC: 7, RN: 1, CN: 3 },
+                { SR: 1, SC: 10, RN: 1, CN: 3 }
+            ];
+            return {
+                proc: "Dealer_Rpt_Led_Prod_Stats",
+                merge: merges,
+                cols: cols,
+                fillrow: ["日期", "私有订单", "公有订单", "PC", "M",
+                    "报价APP", "主软件", "全部", "移动", "非移动", "全部", "移动","非移动"]
+            }
+        },
+                    </pre>
+                </section>
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.3
+            </div>
+            <strong>Copyright &copy; 2014-2015 <a href="http://www.autohome.com.cn">autohome</a>.</strong> All rights reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <div class="pad">
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+        <div class='control-sidebar-bg'></div>
+
+    </div>
+    <!-- ./wrapper -->
+
+
+    <!-- Bootstrap 3.3.2 JS -->
+
+    <!-- AdminLTE App -->
+    <script src="assets/global/plugins/bootstrap_LTE/dist/js/app.js"></script>
+    <script src="assets/global/plugins/bootstrap_LTE/doc/docs.js"></script>
+    <script type="text/javascript">
+        var simplepage = sdlpagebase.Page.extend({
+            init: function (opt) {
+                var that = this;
+                //pagebase 初始化
+                that._super(opt);
+                //绑定自定义事件
+                that.pageEvent();
+            },
+            //请求数据,回调函数
+            //status:请求状态 
+            //rst:返回数据
+            postcallback: function (status, rst) {
+                var data = {
+                    "Status": "Success", "Data": [{
+                        "Name": "DP_Dealer",
+                        "DataSets": [{
+                            "Name": "Dealer_Clue_Get400", "Tables": [{
+                                "Columns":
+                                    ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                                "Rows": [
+                                    ['2012', "212", "323", "12.23"],
+                                    ["2013", "345", "232", "12.1"],
+                                    ["2014", "342", "134", "52.3"],
+                                    ["2015", "163", "655", "34.3"]
+                                ]
+                            }]
+                        }]
+                    }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+                };
+                var that = this;
+
+                that.chartBind(sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"));
+                that.tableBind(data);
+                //that.chartBind(data);
+
+            },
+            //页面事件绑定
+            pageEvent: function () {
+                var that = this;
+                //自定义内容
+                var opt = {
+                    //proc:存储过程名称,自定义参数
+                    postdata: [{ Name: "GetNormalData", "Parameters": [{ Name: "parm1", Value: "parmvalue", DataType: 1 }] },
+                               { Name: "GetNormalData1", "Parameters": [{ Name: "parm11", Value: "parmvalue1", DataType: 2 }] }]
+                }
+                //自定义查询,查询完成调用postcallback
+                $("#self").click(function () {
+                    that.getdata(opt);
+                })
+
+            },
+            //表格
+            tableBind: function (ds) {
+                //table
+                var tbinstance = new sdltool.simpletable({
+                    renderto: "tbcontainer",
+                    dataKey: "Dealer_Clue_Get400",
+                    data: ds,
+                    coloums: [
+                        { title: "日期", datatp: "date" },
+                        { title: "PV" },
+                        { title: "UV" },
+                        { title: "PV/UV", datatp: { key: "percent", reserve: 2 } }],
+                });
+                //table render
+                tbinstance.render();
+            },
+            //chart
+            chartBind: function (ds) {
+                //chart
+                var chart = new sdltool.chart_spline({
+                    renderto: "ctcontainer",
+                    data: ds,
+                    namecol: "dim_day_id",
+                    groupcol: [
+                            { title: "PV", val: "call_ord_num" },
+                            { title: "UV", val: "call_ord_rd_num" },
+                            { title: "PV/UV", val: "call_ord_ind_num", datatp: { reserve: 2 } }]
+                });
+                //chart render
+                chart.render();
+            }
+        })
+
+        // 调用init初始化,初始化查询
+        new simplepage({
+            //proc:存储过程名称
+            postdata:
+                [{
+                    //存储过程名称
+                    Name: "GetNormalData",
+                }]
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var time_mon = new sdltool.picker_mon({
+                id: 'monthRange',
+                singleDatePicker: false,
+                //起始时间
+                startDate: new Date("2015", "6"),
+                //截止时间
+                endDate: new Date("2015", "6")
+            });
+            time_mon.render();
+
+            var time_quar = new sdltool.picker_quar({
+                id: 'quarterRange',
+                singleDatePicker: false,
+                //起始时间
+                startDate: new Date("2015", "2"),
+                //截止时间
+                endDate: new Date("2015", "6")
+            });
+            time_quar.render();
+            time_quar.bingchage(function (json) {
+
+                console.log(json.val.start, json.val.end);
+
+                //id: that.id,
+                //val: { 'start':  that.initDate.startDate, 'end':  that.initDate.endDate }
+
+            })
+            var time_halfy = new sdltool.picker_halfy({
+                id: 'halfRange',
+                singleDatePicker: false,
+                //起始时间
+                startDate: new Date("2015", "2"),
+                //截止时间
+                endDate: new Date("2015", "6")
+            });
+            time_halfy.render();
+
+            var time_year = new sdltool.picker_year({
+                id: 'yearRange',
+                singleDatePicker: false,
+                //起始时间
+                startDate: new Date("2013"),
+                //截止时间
+                endDate: new Date("2014")
+            });
+            time_year.render();
+        });
+    </script>
+    <script>
+        //弹层
+        $(function () {
+            var layer = new sdltool.simple_popLayer({
+                title: "表格标题",
+                content: ['<div class="dialog-cnt">',
+                            '<table class="table-p5">',
+                                '<tr>',
+                                    '<td style="width:70px;">222</td>',
+                                    '<td>2212</td>',
+                                '</tr>',
+                                '<tr>',
+                                    '<td>12</td>',
+                                    '<td>2222222</td>',
+                                '</tr>',
+                                '<tr>',
+                                    '<td>22222</td>',
+                                    '<td>44444444</td>',
+                                '</tr>',
+                            '</table>',
+                      '</div>'].join(''),
+                /*容器，不设置默认为body*/
+                container: '#container',
+                hasMask: true
+            });
+            $('button.popLayer').on('click', function () {
+                layer.open();
+            });
+            $('button.closeLayer').click(function () {
+                layer.close();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        //表单验证
+        $(function () {
+            var validate = sdltool.verify.extend({
+                init: function (opt) {
+                    var that = this;
+                    that._super(opt);
+                },
+                radioTwo: function (select) {
+                    var that = this;
+                    var result = that.radio(select);
+                    return result;
+                }
+            });
+            var verify = new validate({
+                form: 'defaultForm',
+                submit: 'validateBtn',
+                reset: 'resetBtn'
+            });
+            verify.validate();
+        });
+    </script>
+    <script>
+        var data = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                            ['20120101', "23.11", "32.3", "12.2"],
+                            ["20130103", "3.452222", "23.2", "10.0"],
+                            ["20140109", "3.42", "13.4", "52.3"],
+                            ["20150109", "1.63", "14.0", "34.3"],
+                            ["20160109", "19.3", "65.5", "39.3"],
+                            ["20170109", "29.3", "15.5", "29.3"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        //折线图
+        var chart = new sdltool.echarts_spline({
+            container: "#line",
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num", datatp: "date" },
+                    { title: "UV", val: "call_ord_rd_num", datatp: "decimal" },
+                    { title: "人均停留时长", val: "call_ord_ind_num", datatp: { key: "percent", reserve: "3", unit: "cm" } }
+            ],
+            title: '折线图标题',
+            height: '450px'
+        });
+        chart.render();
+        //柱状图
+        var chartbar = new sdltool.echarts_bar({
+            container: "#bar",
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num", datatp: { key: "decimal", reserve: "3", yUnit: "%" } },
+                    { title: "UV", val: "call_ord_rd_num", datatp: { key: "percent", reserve: "3" } },
+                    { title: "人均停留时长", val: "call_ord_ind_num", datatp: { key: "decimal" } }
+            ],
+            title: '柱状图标题',
+        });
+        chartbar.render();
+        //堆积柱状图
+        var stacked = new sdltool.echarts_stacked({
+            container: "#stacked",
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num", datatp: { stack: '搜索引擎' } },
+                    { title: "UV", val: "call_ord_rd_num", datatp: { key: "percent", reserve: "3", yUnit: "%", markLine: true } },
+                    { title: "人均停留时长", val: "call_ord_ind_num", datatp: { stack: '搜索引擎' } }
+            ],
+            title: '堆积柱状图标题',
+        });
+        stacked.render();
+        var datafunnel = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                             ["50", "80", "100"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+
+
+        //雷达
+        var chartradar = new sdltool.echarts_radar({
+            container: "#radar",
+            title: '雷达图标题',
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num", datatp: { key: "percent", reserve: "3" } }
+            ],
+            data: sdlbase.Json.GetdsFmRst(data, "Dealer_Clue_Get400"),
+        });
+        chartradar.render();
+
+        ////饼图
+        var datapie = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                            ["2112", "323", "122"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var chartpie = new sdltool.echarts_pie({
+            container: "#pie",
+            title: '饼图标题',
+
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num" }
+            ],
+            data: sdlbase.Json.GetdsFmRst(datapie, "Dealer_Clue_Get400"),
+        });
+        chartpie.render();
+        //散点
+        var datascatter = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["call_ord_num", "call_ord_rd_num"],
+                        "Rows": [
+                              [45, 80],
+                              [150, 175],
+                              [98, 100],
+                              [55, 60],
+                              [160, 170],
+                              [70, 80],
+                              [50, 78],
+                              [155, 180],
+                              [63, 78]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var echarts_scatter = new sdltool.echarts_scatter({
+            container: "#scatter",
+            title: '散点图标题',
+            //namecol: "dim_day_id",
+            groupcol: [
+                    { title: "男生", val: "call_ord_num", datatp: { yUnit: 'cm', xUnit: 'kg', zUnit: '人' } },
+                    { title: "女生", val: "call_ord_rd_num" }
+            ],
+            data: sdlbase.Json.GetdsFmRst(datascatter, "Dealer_Clue_Get400"),
+        });
+        echarts_scatter.render();
+        //漏斗图
+        var funnel = new sdltool.echarts_funnel({
+            container: "#funnel",
+            title: '漏斗图标题',
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num" }
+            ],
+            data: sdlbase.Json.GetdsFmRst(datafunnel, "Dealer_Clue_Get400"),
+        });
+        funnel.render();
+        var datamap = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer",
+                "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns":
+                            ["dim_day_id", "call_ord_num", "call_ord_rd_num", "call_ord_ind_num"],
+                        "Rows": [
+                             ['北京', "0", "32003", "10022"],
+                             ['天津', "506632", "80366", "16660"],
+                             ['上海', "110000", "32003", "10022"],
+                             ['重庆', "34500", "23200", "10000"],
+                             ['河北', "34200", "134000", "52003"],
+                             ['河南', "163000", "4000", "34300"],
+                             ['云南', "193000", "65500", "39003"],
+                             ['辽宁', "29300", "15500", "29003"],
+                             ['黑龙江', "1100", "32003", "10022"],
+                             ['湖南', "34500", "23200", "10000"],
+                             ['安徽', "34200", "134000", "52003"],
+                             ['山东', "163000", "4000", "34300"],
+                             ['新疆', "193000", "65500", "39003"],
+                             ['江苏', "29300", "15500", "29003"],
+                             ['浙江', "110000", "32003", "10022"],
+                             ['江西', "34500", "23200", "10000"],
+                             ['湖北', "34200", "134000", "52003"],
+                             ['广西', "163000", "4000", "34300"],
+                             ['甘肃', "193000", "65500", "39003"],
+                             ['山西', "29300", "15500", "29003"],
+                             ['内蒙古', "110000", "32003", "10022"],
+                             ['陕西', "34500", "23200", "10000"],
+                             ['吉林', "34200", "134000", "52003"],
+                             ['福建', "163000", "4000", "34300"],
+                             ['贵州', "193000", "65500", "39003"],
+                             ['广东', "29300", "15500", "29003"],
+                             ['青海', "1100", "32003", "10022"],
+                             ['西藏', "34500", "23200", "10000"],
+                             ['四川', "34200", "134000", "52003"],
+                             ['宁夏', "163000", "4000", "34300"],
+                             ['海南', "193000", "65500", "39003"],
+                             ['台湾', "29300", "15500", "29003"],
+                             ['香港', "110000", "32003", "10022"],
+                             ['澳门', "34500", "23200", "10000"]
+                        ]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01", "Type": "Json"
+        };
+        var map = new sdltool.echarts_map({
+            container: "#map",
+            title: '地图标题',
+            namecol: "dim_day_id",
+            groupcol: [
+                    { title: "PV", val: "call_ord_num" },
+                    { title: "UV", val: "call_ord_rd_num" },
+                    { title: "人均停留时长", val: "call_ord_ind_num" }
+            ],
+            data: sdlbase.Json.GetdsFmRst(datamap, "Dealer_Clue_Get400"),
+        });
+        map.render();
+    </script>
+    <script type="text/javascript">
+        var radio = new sdltool.radio_sample({
+            id: 'radio',
+            datadefault: 'PC',
+        });
+        radio.bingChange(function (opt) {
+            console.log({ 'id': opt.id, 'val': opt.val });
+        });
+
+    </script>
+    <script type="text/javascript">
+        var data = {
+            "Status": "Success", "Data": [{
+                "Name": "DP_Dealer", "DataSets": [{
+                    "Name": "Dealer_Clue_Get400", "Tables": [{
+                        "Columns": ["dim_id", "call_num"],
+                        "Rows": [["PV", "68530"], ["UV", "93758"], ["参与秒杀人数", "77342"]]
+                    }]
+                }]
+            }], "Msg": "\u64CD\u4F5C\u6210\u529F\uFF01"
+, "Type": "Json"
+        };
+        var textinstance = new sdltool.textblock({
+            renderto: "textcontainer",
+            data: data,
+            dataKey: "Dealer_Clue_Get400",
+            callback: function (arg) {
+                console.log(arg);
+            }
+        });
+        textinstance.render();
+    </script>
+</body>
+</html>

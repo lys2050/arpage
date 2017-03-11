@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>BootstrapValidator</title>
+    <link rel="stylesheet" href="../assets/global/plugins/bootstrap_LTE/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/global/plugins/validator/bootstrapValidator.css">
+    <link rel="stylesheet" href="../assets/global/plugins/validator/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" />
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/bootstrap_LTE/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/validator/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="../assets/global/plugins/validator/bootstrapValidator.js"></script>
+    <script src="../assets/local/script/sdlbase.js"></script>
+    <script src="../assets/local/script/sdltool.js"></script>
+    <script src="../assets/local/script/sdlpagebase.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- form: -->
+            <section>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="page-header">
+                        <h2>Sign up</h2>
+                    </div>
+
+                    <form id="defaultForm" method="post" class="form-horizontal bv-form" action="#" novalidate="novalidate">
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Decimal</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control"  data-validator='{"valikey":"decimal","digit":2,"number":2,"required":true}' >                   
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Gender</label>
+                            <div class="col-lg-5">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="male"  data-validator='{"valikey":"radio","required":false}'> Male
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="female"> Female
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="other" > Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">GenderT</label>
+                            <div class="col-lg-5">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="aa" value="males"  data-validator='{"valikey":"radioTwo","required":true}'> Male
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="aa" value="females"> Female
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="aa" value="others" > Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-lg-3 control-label">Programming Languages</label>
+                            <div class="col-lg-5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs" value="net" data-validator='{"valikey":"checkbox","required":true}'> .Net
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs" value="java"> Java
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs" value="c"> C/C++
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs" value="php"> PHP
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs" value="perl"> Perl
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="programs" value="ruby"> Ruby
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+                       
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Browser</label>
+                            <div class="col-lg-5">
+                                <select class="form-control" data-validator='{"valikey":"select","required":true}' multiple>
+                                    <option value="chrome">Google Chrome</option>
+                                    <option value="firefox">Firefox</option>
+                                    <option value="ie">IE</option>
+                                    <option value="safari">Safari</option>
+                                    <option value="opera">Opera</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <button type="button" class="btn btn-info" id="validateBtn">Manual validate</button>
+                                <button type="button" class="btn btn-info" id="resetBtn">Reset form</button>
+                            </div>
+                        </div>
+                    </form>                  
+
+   
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var validate = sdltool.verify.extend({
+        init: function (opt) {
+            var that = this;
+            that._super(opt);
+        },
+        radioTwo: function (select) {
+            var that = this;
+            var result = that.radio(select);
+            return result;
+        }
+    });
+    var verify = new validate({
+        form: 'defaultForm',
+        submit: 'validateBtn',
+        reset: 'resetBtn'
+    });
+    verify.validate();
+</script>
+    
+
+</body>
+</html>

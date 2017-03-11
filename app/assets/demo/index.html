@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+    <title>AutoSDL</title>
+    <!--模板页样式-->
+    <link href="../assets/mould/css/autoshow.css" rel="stylesheet">
+    <link href="../assets/mould/css/shows.css" rel="stylesheet">
+    <link href="../assets/mould/css/prettify.css" rel="stylesheet">
+    <script src="../assets/global/plugins/jquery-1.11.0.min.js"></script> 
+    <script type="text/javascript" src="../assets/mould/js/dropdown.js"></script>
+    <script type="text/javascript" src="../assets/mould/js/scrollFixed.js"></script>
+ 
+    <script type="text/javascript" src="../assets/mould/js/navLink.js"></script>
+
+</head>
+<body>
+
+    <!--头部导航开始-->
+    <div class="navsbar fn-clear">
+        <div class="content">
+            <div class="logo">
+                <a href="javascript:;"><strong>AutoSDL</strong><span>V 1.0</span></a>
+            </div>
+            <ul class="navs">
+                <li>
+                    <!--<span>要链接的文件名前缀：左侧列表显示内容</span>-->
+                    <a target="_self" data-link="global-module" href="javascript:;">全局规范<span>global:全局控件</span></a>
+                </li>
+                <li>
+                    <a target="_self" href="javascript:;" data-link="widget-module">控件<span>tabCon:tab控件使用</span><span>dateCon:日历控件使用</span><span>tableCon:表格控件使用</span></a>
+                </li>
+                <li data-role="dropdown" class="dropdown">
+                    <a target="_self" href="javascript:;" data-link="table-module">模板<span>table:表格</span><span>char:折线图</span><span>chartable:折线图和表格</span></a>
+                    <!--<i class="icon-navs-down"></i>-->
+                   <!-- <ul class="navs-child">
+                      <li><a target="_self" href="" data-link="table-module">表格模板</a><span>table:表格</span></li>
+                      <li><a target="_self" href="" data-link="char-module">折线图模板</a></li>
+                    </ul>-->
+                </li>   
+                <li>
+                    <a target="_self" data-link="form-module" href="javascript:;">报表在线生成<span>form:报表</span></a>
+                </li>
+                <li>
+                    <a target="_self" href="javascript:;" data-link="m-module">移动端支持<span>tableM:移动端</span></a>
+                </li>          
+            </ul>
+        </div>
+    </div>
+    <!--头部导航end-->
+    <div class="content content-tag" id="basics">
+        <div class="row">
+              <div class="column grid-20">
+                 <div class="zt-title">
+                    <h2 class="zt-title-zy">模板库<!--<span>infor-Widgets</span>--></h2>
+                   <!-- <div class="zt-title-infor">常用模板控件</div>-->
+                 </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="column grid-4"  id="left">
+                <div class="navslist" style="position: static; top: 0px;" id="navslist">
+                    <ul>
+                        <li class="navslist-title"><strong>WIDGETS</strong>控件列表</li>             
+                    </ul>
+                </div>
+          </div>
+           <div class="column gird-16" id="moduleBox">
+                <iframe id="moduleBoxChild" name="moduleBoxChild" src="" width="100%" style="overflow-y: auto;" frameborder="0" scrolling="no">
+                </iframe>
+           </div>
+        </div>
+    </div>     
+    
+
+</body>
+</html>
+
+
+
