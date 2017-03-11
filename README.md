@@ -1,5 +1,5 @@
 arpage (abstract report page)
-
+![ttt](https://github.com/YliuChina/arpage/blob/master/app/fristpage.png?raw=true)
 arpage定位为 BI、大数据等页面报表类开发框架，实现自助化、自动化的开发工作
 ![ttt](https://github.com/YliuChina/arpage/blob/master/app/document.png?raw=true)
 
